@@ -1,0 +1,59 @@
+.mantine-Notification-root {
+  padding: 0;
+  height: auto;
+  padding-block: var(--mantine-spacing-xs); /* Adjust the variable name */
+  min-height: 40px;
+  max-height: 56px;
+  border-radius: var(--mantine-radius-sm); /* Adjust the variable name */
+  width: fit-content;
+}
+
+.mantine-Notification-closeButton {
+  display: none;
+}
+
+.mantine-Notification-title {
+  display: none;
+}
+
+.mantine-Notification-body {
+  margin: 0;
+
+  [class^='bg-'] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--mantine-color-green-6); /* Adjust the variable name */
+    z-index: 1;
+  }
+
+  .bg-success {
+    background: var(--mantine-color-blue-6); /* Adjust the variable name */
+  }
+
+  .bg-error {
+    background: var(--mantine-color-red-6); /* Adjust the variable name */
+  }
+
+  .notification {
+    position: relative;
+    font-size: var(--mantine-font-size-sm); /* Adjust the variable name */
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    padding-left: var(--mantine-spacing-sm); /* Adjust the variable name */
+    color: var(--mantine-color-white); /* Adjust the variable name */
+    z-index: 2;
+    max-width: calc(100vw - 16px);
+  }
+
+  .notification > span {
+    display: block;
+  }
+
+  .notification > [role='separator'] {
+    align-self: unset;
+  }
+}

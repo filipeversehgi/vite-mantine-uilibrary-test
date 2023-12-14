@@ -1,8 +1,9 @@
-import '@mantine/core/styles.css';
-import React, { useEffect } from 'react';
-import { addons } from '@storybook/preview-api';
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import { MantineProvider, useMantineColorScheme } from '@mantine/core';
+import '@mantine/core/styles.css';
+import { addons } from '@storybook/preview-api';
+import React, { useEffect } from 'react';
+import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
+import '../src/global.css';
 import { theme } from '../src/theme';
 
 const channel = addons.getChannel();

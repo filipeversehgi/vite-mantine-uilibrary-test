@@ -1,0 +1,11 @@
+
+.backLink {
+    text-decoration: underline;
+    text-decoration-color: var(--mantine-color-light-2);
+    font-weight: 500;
+    color: var(--mantine-color-light-2);
+
+    &:hover {
+        color: var(--mantine-color-light-2)
+    }
+}
