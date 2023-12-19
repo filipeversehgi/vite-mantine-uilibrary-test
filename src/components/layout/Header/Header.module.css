@@ -1,0 +1,18 @@
+.header {
+  background-color: var(--mantine-color-gray-6); /* Adjust the variable name */
+  padding: var(--mantine-spacing-md); /* Adjust the variable name */
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.burger {
+  transform: rotate(180deg);
+
+  > div {
+    width: 12px;
+
+    ::after,
+    ::before {
+      width: 22px;
+    }
+  }
+}

@@ -1,75 +1,43 @@
-import { memo, useState } from 'react'
-import { useController } from 'react-hook-form'
+import { memo } from 'react';
+import { FieldValues, useController } from 'react-hook-form';
 
-import { TextInput, useMantineTheme } from '@mantine/core'
+import { TextInput } from '@mantine/core';
 
-import { getValidationMessage } from '@/common/utils'
-import { LabelInput } from '@/components/forms/LabelInput'
-import { IconCheck } from '@/components/icons/untitled-ui'
+import { HFTextInputProps } from './TextInput.types';
+import { withCheckmark } from '../WithCheckmark/WithCheckmark';
 
-import { HFTextInputProps } from './TextInput.types'
-
-function HFTextInput({
-    id,
-    label,
-    placeholder,
-    helperText,
-    disabled,
-    type = 'text',
-    showCheckMark = true,
-    required = false,
-    hideOptionalLabel = false,
-    validations,
+function HFTextInput<T extends FieldValues>({
+  name,
+  control,
+  defaultValue,
+  rules,
+  shouldUnregister,
+  onChange,
+  ...props
+}: HFTextInputProps<T>) {
+  const {
+    field: { value, onChange: fieldOnChange, ...field },
+    fieldState,
+  } = useController<T>({
+    name,
     control,
-    ...props
-}: HFTextInputProps) {
-    const [canRenderCheckmark, setCanRenderCheckmark] = useState(false)
-    const theme = useMantineTheme()
-    const {
-        field,
-        fieldState: { error, isDirty, invalid },
-    } = useController({
-        control,
-        name: id,
-        defaultValue: '',
-        rules: {
-            required: required,
-            minLength: validations?.rules?.minLength,
-            maxLength: validations?.rules?.maxLength,
-            pattern: new RegExp(validations?.rules?.regex || ''),
-            validate: validations?.rules?.validate,
-        },
-    })
+    defaultValue,
+    rules,
+    shouldUnregister,
+  });
 
-    const rightCheckMark = !invalid && isDirty && field.value && showCheckMark && canRenderCheckmark && (
-        <IconCheck color={theme.colors.green[9]} />
-    )
-
-    return (
-        <TextInput
-            id={id}
-            type={type}
-            label={<LabelInput disabled={disabled} required={hideOptionalLabel ? true : required} label={label} />}
-            placeholder={placeholder}
-            description={helperText}
-            rightSection={rightCheckMark}
-            disabled={disabled}
-            error={getValidationMessage(validations, error)}
-            width={'100%'}
-            {...field}
-            {...props}
-            onBlur={(event) => {
-                let value = event.target.value
-                value = value.trimStart().trimEnd()
-                if (isDirty) {
-                    field.onChange(value)
-                    field.onBlur()
-                    setCanRenderCheckmark(true)
-                }
-                props?.onBlur && props.onBlur(event)
-            }}
-        />
-    )
+  return (
+    <TextInput
+      value={value}
+      onChange={(e) => {
+        fieldOnChange(e);
+        onChange?.(e);
+      }}
+      error={fieldState.error?.message}
+      {...field}
+      {...props}
+    />
+  );
 }
 
-export default memo(HFTextInput)
+export default memo(withCheckmark(HFTextInput));

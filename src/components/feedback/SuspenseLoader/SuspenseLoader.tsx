@@ -1,11 +1,10 @@
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
-import { GlobalLoader } from '@/components/feedback/GlobalLoader'
+import { GlobalLoader } from '../GlobalLoader';
+import { SuspenseLoaderProps } from './SuspenseLoader.types';
 
-import { SuspenseLoaderProps } from './SuspenseLoader.types'
-
-function SuspenseLoader({ children }: SuspenseLoaderProps) {
-    return <Suspense fallback={<GlobalLoader />}>{children}</Suspense>
+function SuspenseLoader({ children, ...globalLoaderProps }: SuspenseLoaderProps) {
+  return <Suspense fallback={<GlobalLoader {...globalLoaderProps} />}>{children}</Suspense>;
 }
 
-export default SuspenseLoader
+export default SuspenseLoader;

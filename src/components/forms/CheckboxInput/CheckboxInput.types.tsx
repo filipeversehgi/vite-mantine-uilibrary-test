@@ -1,5 +1,5 @@
-import { CheckboxProps } from '@mantine/core'
+import { CheckboxProps } from '@mantine/core';
+import { FieldValues, UseControllerProps } from 'react-hook-form';
 
-import { FormInputType } from '@/components/forms/types'
-
-export type HFCheckboxInputProps = Omit<FormInputType, 'showCheckMark' | 'validations'> & CheckboxProps
+export type HFCheckboxInputProps<T extends FieldValues> = UseControllerProps<T> &
+  Omit<CheckboxProps, 'checked' | 'defaultValue'>;

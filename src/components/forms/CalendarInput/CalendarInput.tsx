@@ -1,74 +1,101 @@
-import { useState } from 'react'
-import { useController } from 'react-hook-form'
+import { FieldValues, useController } from 'react-hook-form';
 
-import { useMantineTheme } from '@mantine/core'
-import { DateInput } from '@mantine/dates'
+import { DateInput } from '@mantine/dates';
 
-import { getValidationMessage } from '@/common/utils'
-import { LabelInput } from '@/components/forms'
-import { IconCheck, IconCalendar } from '@/components/icons/untitled-ui'
+import { IconCalendar } from '@/components/icons/untitled-ui';
 
-import { CalendarInputProps } from './CalendarInput.types'
+import { withCheckmark } from '../WithCheckmark/WithCheckmark';
+import { CalendarInputProps } from './CalendarInput.types';
 
-function CalendarInput({
-    id,
-    label,
-    placeholder,
-    required,
-    helperText,
-    valueFormat,
-    showCheckMark = true,
-    minDate,
-    clearable = true,
+// function CalendarInput<T extends FieldValues>({
+//   name,
+//   control,
+//   defaultValue,
+//   shouldUnregister,
+//   onChange,
+//   withCheckmark,
+//   rules,
+//   ...props
+// }: CalendarInputProps<T>) {
+//   const [canRenderCheckmark, setCanRenderCheckmark] = useState(false);
+//   const theme = useMantineTheme();
+
+//   const {
+//     field: { value, onChange: fieldOnChange, onBlur, ...field },
+//     fieldState,
+//   } = useController<T>({
+//     name,
+//     control,
+//     defaultValue,
+//     rules,
+//     shouldUnregister,
+//   });
+
+//   const rightCheckMark = !props.disabled &&
+//     !fieldState.invalid &&
+//     fieldState.isDirty &&
+//     withCheckmark &&
+//     canRenderCheckmark && <IconCheck color={theme.colors.green[9]} />;
+
+//   return (
+//     <DateInput
+//       error={fieldState.error?.message}
+//       value={value}
+//       onChange={(e) => {
+//         fieldOnChange(e);
+//         onChange?.(e);
+//       }}
+//       rightSection={rightCheckMark}
+//       leftSection={<IconCalendar />}
+//       onBlur={(event) => {
+//         if (fieldState.isDirty) {
+//           onBlur();
+//           setCanRenderCheckmark(event.target.value ? true : false);
+//         }
+//         props?.onBlur && props.onBlur(event);
+//       }}
+//       {...field}
+//       {...props}
+//     />
+//   );
+// }
+
+function CalendarInput<T extends FieldValues>({
+  name,
+  control,
+  defaultValue,
+  shouldUnregister,
+  onChange,
+  withCheckmark,
+  rules,
+  ...props
+}: CalendarInputProps<T>) {
+  const {
+    field: { value, onChange: fieldOnChange, onBlur, ...field },
+    fieldState,
+  } = useController<T>({
+    name,
     control,
-    validations,
-    disabled,
-    ...props
-}: CalendarInputProps) {
-    const [canRenderCheckmark, setCanRenderCheckmark] = useState(false)
-    const theme = useMantineTheme()
-    const {
-        field,
-        fieldState: { error, isDirty, invalid },
-    } = useController({
-        control,
-        name: id,
-        defaultValue: false,
-        rules: {
-            required: required,
-        },
-    })
+    defaultValue,
+    rules,
+    shouldUnregister,
+  });
 
-    const rightCheckMark = !disabled && !invalid && isDirty && showCheckMark && canRenderCheckmark && (
-        <IconCheck color={theme.colors.green[9]} />
-    )
-
-    return (
-        <DateInput
-            id={id}
-            label={<LabelInput label={label} required={required} disabled={disabled} />}
-            placeholder={placeholder}
-            required={required}
-            rightSection={rightCheckMark}
-            icon={<IconCalendar />}
-            valueFormat={valueFormat}
-            description={helperText}
-            minDate={minDate}
-            clearable={clearable}
-            disabled={disabled}
-            error={getValidationMessage(validations, error)}
-            {...field}
-            {...props}
-            withAsterisk={false}
-            onBlur={(event) => {
-                if (isDirty) {
-                    field.onBlur()
-                    setCanRenderCheckmark(event.target.value ? true : false)
-                }
-                props?.onBlur && props.onBlur(event)
-            }}
-        />
-    )
+  return (
+    <DateInput
+      error={fieldState.error?.message}
+      value={value}
+      onChange={(e) => {
+        fieldOnChange(e);
+        onChange?.(e);
+      }}
+      leftSection={<IconCalendar />}
+      {...field}
+      {...props}
+    />
+  );
 }
 
-export default CalendarInput
+const CalendarInputWithCheckmark = withCheckmark(CalendarInput);
+
+export default CalendarInputWithCheckmark;

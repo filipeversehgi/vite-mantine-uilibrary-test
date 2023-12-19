@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 import BackLink from './BackLink';
 
 /**
@@ -9,7 +8,6 @@ const meta: Meta<typeof BackLink> = {
   component: BackLink,
   tags: ['autodocs'],
   title: 'Core/BackLink',
-  decorators: [(story) => <BrowserRouter>{story()}</BrowserRouter>],
   parameters: {
     docs: {
       inline: true,

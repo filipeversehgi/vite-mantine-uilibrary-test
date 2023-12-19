@@ -1,8 +1,9 @@
 import { TextareaProps } from '@mantine/core'
 
-import { FormInputType } from '@/components/forms/types'
+import { FieldValues, UseControllerProps } from 'react-hook-form'
 
-export type HFTextAreaInputProps = FormInputType &
-    TextareaProps & {
-        toolTipText?: string
+export type HFTextAreaInputProps<T extends FieldValues> = UseControllerProps<T> &
+    Omit<TextareaProps, "value" | "defaultValue" | "label"> & {
+        toolTipText?: string,
+        label: string,
     }

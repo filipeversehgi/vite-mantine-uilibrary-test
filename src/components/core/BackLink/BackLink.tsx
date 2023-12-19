@@ -10,7 +10,6 @@ import classes from './BackLink.module.css';
 
 function BackLink({ text, to, size = 'md', color, hideArrow, onClick, ...props }: BackLinkProps) {
   const theme = useMantineTheme();
-  console.log(theme);
 
   const sizeNumbers: Record<MantineSize, number> = {
     lg: 18,

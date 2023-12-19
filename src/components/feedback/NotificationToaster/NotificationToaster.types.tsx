@@ -8,9 +8,6 @@ export type NotificationToasterProps = {
     text?: string;
     action: () => void;
   };
-  t: {
-    close: string;
-  };
 };
 
 export type NotificationToasterType = 'success' | 'error';

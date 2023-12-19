@@ -1,0 +1,13 @@
+.text {
+  color: var(--mantine-primary-color); /* Adjust the variable name */
+  font-weight: 600;
+}
+
+.textSecondary {
+  color: var(--mantine-color-light-1); /* Adjust the variable name */
+  font-weight: 400;
+}
+
+.fileType {
+  line-height: normal;
+}

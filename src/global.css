@@ -1,59 +1,120 @@
-.mantine-Notification-root {
-  padding: 0;
-  height: auto;
-  padding-block: var(--mantine-spacing-xs); /* Adjust the variable name */
-  min-height: 40px;
-  max-height: 56px;
-  border-radius: var(--mantine-radius-sm); /* Adjust the variable name */
-  width: fit-content;
+/* Buttons */
+
+.mantine-Button {
+  &-section {
+    svg {
+      height: 100%;
+    }
+  }
+
+  &-root {
+    &[data-size='xs'] {
+      .mantine-Button-section {
+        height: calc(var(--mantine-font-size-xs) + 4px);
+      }
+    }
+
+    &[data-size='sm'] {
+      .mantine-Button-section {
+        height: calc(var(--mantine-font-size-sm) + 4px);
+      }
+    }
+
+    &[data-size='md'] {
+      .mantine-Button-section {
+        height: calc(var(--mantine-font-size-md) + 4px);
+      }
+    }
+
+    &[data-size='lg'] {
+      .mantine-Button-section {
+        height: calc(var(--mantine-font-size-lg) + 4px);
+      }
+    }
+
+    &[data-size='xl'] {
+      .mantine-Button-section {
+        height: calc(var(--mantine-font-size-xl) + 4px);
+      }
+    }
+  }
 }
 
-.mantine-Notification-closeButton {
-  display: none;
+/* Notifications */
+
+.mantine-Notification {
+  &-root {
+    padding: 0;
+    height: auto;
+    padding-block: var(--mantine-spacing-xs); /* Adjust the variable name */
+    min-height: 40px;
+    max-height: 56px;
+    border-radius: var(--mantine-radius-sm); /* Adjust the variable name */
+    width: fit-content;
+  }
+
+  &-closeButton {
+    display: none;
+  }
+
+  &-title {
+    display: none;
+  }
+
+  &-body {
+    margin: 0;
+
+    [class^='bg-'] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--mantine-color-green-6); /* Adjust the variable name */
+      z-index: 1;
+    }
+
+    .bg-success {
+      background: var(--mantine-color-blue-6); /* Adjust the variable name */
+    }
+
+    .bg-error {
+      background: var(--mantine-color-red-6); /* Adjust the variable name */
+    }
+
+    .notification {
+      position: relative;
+      font-size: var(--mantine-font-size-sm); /* Adjust the variable name */
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      padding-left: var(--mantine-spacing-sm); /* Adjust the variable name */
+      color: var(--mantine-color-white); /* Adjust the variable name */
+      z-index: 2;
+      max-width: calc(100vw - 16px);
+    }
+
+    .notification > span {
+      display: block;
+    }
+
+    .notification > [role='separator'] {
+      align-self: unset;
+    }
+  }
 }
 
-.mantine-Notification-title {
-  display: none;
-}
+/* Dropzone */
 
-.mantine-Notification-body {
-  margin: 0;
-
-  [class^='bg-'] {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--mantine-color-green-6); /* Adjust the variable name */
-    z-index: 1;
-  }
-
-  .bg-success {
-    background: var(--mantine-color-blue-6); /* Adjust the variable name */
-  }
-
-  .bg-error {
-    background: var(--mantine-color-red-6); /* Adjust the variable name */
-  }
-
-  .notification {
-    position: relative;
-    font-size: var(--mantine-font-size-sm); /* Adjust the variable name */
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    padding-left: var(--mantine-spacing-sm); /* Adjust the variable name */
-    color: var(--mantine-color-white); /* Adjust the variable name */
-    z-index: 2;
-    max-width: calc(100vw - 16px);
-  }
-
-  .notification > span {
-    display: block;
-  }
-
-  .notification > [role='separator'] {
-    align-self: unset;
+.mantine-Dropzone {
+  &-root {
+    padding: 16px 24px;
+    border-radius: var(--mantine-spacing-lg);
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: 1px solid var(--mantine-color-gray-3);
+    &:hover {
+      background-color: var(--mantine-color-gray-1);
+    }
   }
 }

@@ -1,109 +1,96 @@
-import { memo, useEffect, useRef, useState } from 'react'
-import { useController } from 'react-hook-form'
+import { memo, useEffect, useRef } from 'react';
+import { FieldValues, useController } from 'react-hook-form';
 
-import { Textarea, useMantineTheme, Space, Flex, Tooltip } from '@mantine/core'
+import { Flex, Space, Textarea, Tooltip } from '@mantine/core';
 
-import { getValidationMessage } from '@/common/utils'
-import { LabelInput } from '@/components/forms'
-import { IconCheck, IconHelpCircle } from '@/components/icons/untitled-ui'
+import { LabelInput } from '@/components/forms/LabelInput';
+import { IconHelpCircle } from '@/components/icons/untitled-ui';
 
-import { HFTextAreaInputProps } from './TextAreaInput.types'
+import { HFTextAreaInputProps } from './TextAreaInput.types';
+import { withCheckmark } from '../WithCheckmark/WithCheckmark';
 
-function HFTextAreaInput({
-    id,
-    label,
-    placeholder,
-    helperText,
-    showCheckMark = true,
-    required = false,
-    validations,
+function HFTextAreaInput<T extends FieldValues>({
+  name,
+  control,
+  defaultValue,
+  rules,
+  label,
+  shouldUnregister,
+  onChange,
+  toolTipText,
+  ...props
+}: HFTextAreaInputProps<T>) {
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  const {
+    field: { value, onChange: fieldOnChange, ...field },
+    fieldState,
+  } = useController<T>({
+    name,
     control,
-    toolTipText,
-    disabled = false,
-    ...props
-}: HFTextAreaInputProps) {
-    const [canRenderCheckmark, setCanRenderCheckmark] = useState(false)
-    const theme = useMantineTheme()
-    const textAreaRef = useRef<HTMLTextAreaElement>(null)
-    const {
-        field,
-        fieldState: { error, isDirty, invalid },
-    } = useController({
-        control,
-        name: id,
-        defaultValue: '',
-        rules: {
-            required: required,
-            minLength: validations?.rules?.minLength,
-            maxLength: validations?.rules?.maxLength,
-            pattern: new RegExp(validations?.rules?.regex || ''),
-            validate: validations?.rules?.validate,
-        },
-    })
+    defaultValue,
+    rules,
+    shouldUnregister,
+  });
 
-    const rightCheckMark = !invalid && isDirty && showCheckMark && canRenderCheckmark && (
-        <IconCheck color={theme.colors.green[9]} />
-    )
-
-    const moveCursorToEnd = () => {
-        const currentTextArea = textAreaRef.current
-        if (currentTextArea) {
-            textAreaRef.current.focus()
-            if (currentTextArea.value.length > 0) {
-                const textLength = textAreaRef.current.value.length
-                textAreaRef.current.setSelectionRange(textLength, textLength)
-            }
-        }
+  const moveCursorToEnd = () => {
+    const currentTextArea = textAreaRef.current;
+    if (currentTextArea) {
+      textAreaRef.current.focus();
+      if (currentTextArea.value.length > 0) {
+        const textLength = textAreaRef.current.value.length;
+        textAreaRef.current.setSelectionRange(textLength, textLength);
+      }
     }
+  };
 
-    useEffect(() => {
-        moveCursorToEnd()
-    }, [])
+  useEffect(() => {
+    moveCursorToEnd();
+  }, []);
 
-    return (
-        <Textarea
-            id={id}
-            label={
-                <Flex>
-                    {<LabelInput label={label} required={required} disabled={disabled} />}
-                    {toolTipText && (
-                        <>
-                            <Space w={4} />
-                            <Tooltip
-                                width={320}
-                                multiline
-                                position="top-start"
-                                arrowSize={6}
-                                withArrow
-                                label={toolTipText}>
-                                <span>
-                                    <IconHelpCircle />
-                                </span>
-                            </Tooltip>
-                        </>
-                    )}
-                </Flex>
-            }
-            placeholder={placeholder}
-            description={helperText}
-            rightSection={rightCheckMark}
-            disabled={disabled}
-            error={getValidationMessage(validations, error)}
-            {...field}
-            {...props}
-            ref={textAreaRef}
-            onBlur={(event) => {
-                let value = event.target.value
-                value = value.trimStart().trimEnd()
-                if (isDirty) {
-                    field.onChange(value)
-                    field.onBlur()
-                    setCanRenderCheckmark(true)
-                }
-                props?.onBlur && props.onBlur(event)
-            }}
-        />
-    )
+  return (
+    <Textarea
+      value={value}
+      onChange={(e) => {
+        fieldOnChange(e);
+        onChange?.(e);
+      }}
+      error={fieldState.error?.message}
+      label={
+        <Flex>
+          {<LabelInput label={label} required={props.required} disabled={props.disabled} />}
+          {toolTipText && (
+            <>
+              <Space w={4} />
+              <Tooltip
+                w={320}
+                multiline
+                position="top-start"
+                arrowSize={6}
+                withArrow
+                label={toolTipText}
+              >
+                <span>
+                  <IconHelpCircle />
+                </span>
+              </Tooltip>
+            </>
+          )}
+        </Flex>
+      }
+      {...field}
+      {...props}
+      onBlur={(event) => {
+        let value = event.target.value;
+        value = value.trimStart().trimEnd();
+        if (fieldState.isDirty) {
+          fieldOnChange(value);
+          field.onBlur();
+        }
+        props?.onBlur && props.onBlur(event);
+      }}
+    />
+  );
 }
 
-export default memo(HFTextAreaInput)
+export default memo(withCheckmark(HFTextAreaInput));

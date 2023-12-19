@@ -6,6 +6,7 @@ import {
 type ExtendedCustomColors =
     | 'brand'
     | 'gray'
+    | 'andre'
     | DefaultMantineColor;
 
 declare module '@mantine/core' {

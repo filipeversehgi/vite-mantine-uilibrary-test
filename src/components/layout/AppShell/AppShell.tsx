@@ -1,21 +1,21 @@
-import { Suspense } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Suspense } from 'react';
 
-import { AppShell as MantineShell, Container } from '@mantine/core'
+import { Container, AppShell as MantineShell } from '@mantine/core';
 
-import { Header } from '@/components/layout'
-import { WedPlanNavbar } from '@/containers'
+import { AppShellProps } from './AppShell.types';
 
-function AppShell() {
-    return (
-        <MantineShell navbar={<WedPlanNavbar />} header={<Header />}>
-            <Container className="shell-container">
-                <Suspense>
-                    <Outlet />
-                </Suspense>
-            </Container>
-        </MantineShell>
-    )
+function AppShell({ navbar, header, children, headerConfig, navbarConfig }: AppShellProps) {
+  return (
+    <MantineShell header={headerConfig} navbar={navbarConfig}>
+      <MantineShell.Header>{header}</MantineShell.Header>
+      <MantineShell.Navbar>{navbar}</MantineShell.Navbar>
+      <MantineShell.Main>
+        <Container>
+          <Suspense>{children}</Suspense>
+        </Container>
+      </MantineShell.Main>
+    </MantineShell>
+  );
 }
 
-export default AppShell
+export default AppShell;

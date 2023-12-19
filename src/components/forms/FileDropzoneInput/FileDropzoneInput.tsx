@@ -1,15 +1,14 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useContext, useRef } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
 import { Flex, Group, Loader, Text, useMantineTheme } from '@mantine/core';
 import { Dropzone, FileWithPath } from '@mantine/dropzone';
 
-import { getValidationMessage } from '@/common/utils';
-import { LabelInput } from '@/components/forms';
 import { IconAlertCircle, IconCheck, IconUploadCloud } from '@/components/icons/untitled-ui';
 
-import { useStyles } from './FileDropzoneInput.styles';
+import { TranslationContext } from '@/components/core/TranslationContext';
+import { LabelInput } from '../LabelInput';
+import classes from './FileDropzoneInput.module.css';
 import { acceptConfig, FileDropzoneInputProps, FileRejection } from './FileDropzoneInput.types';
 import FileDropzoneInputError from './FileDropzoneInputError/FileDropzoneInputError';
 import FileDropzoneInputPreview from './FileDropzoneInputPreview/FileDropzoneInputPreview';
@@ -27,14 +26,12 @@ function FileDropzoneInput({
   isLoading,
   onUpdateFiles,
   disabled,
-  validations,
   boxPreview,
   onUpdateFilesErrors,
 }: FileDropzoneInputProps) {
   const openRef = useRef<() => void>(null);
   const theme = useMantineTheme();
-  const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  const { dropZone: t } = useContext(TranslationContext);
   const { setValue, setError, clearErrors, control, getFieldState } = useFormContext();
   const {
     field,
@@ -54,7 +51,7 @@ function FileDropzoneInput({
 
   const getFieldError = () => {
     const contextError = getFieldState(id)?.error?.message;
-    const controllerError = getValidationMessage(validations, fieldError);
+    const controllerError = '';
 
     return controllerError || contextError;
   };
@@ -64,13 +61,13 @@ function FileDropzoneInput({
       if (onUpdateFilesErrors) onUpdateFilesErrors(errors);
 
       const getMessage = () => {
-        const imageRequirements = t('dropzone.imageRequirements');
-        const maxMessage = `${t('dropzone.max')} ${maxSizeMb}MB`;
+        const imageRequirements = t.requirements;
+        const maxMessage = `${t.max} ${maxSizeMb}MB`;
         const formatMessage = accept.map((type, index) => {
           if (accept.length - 2 === index) {
             return `${type} `;
           } else if (accept.length - 1 === index) {
-            return `${t('dropzone.or')} ${type}.`;
+            return `${t.or} ${type}.`;
           }
           return `${type}, `;
         });
@@ -136,7 +133,7 @@ function FileDropzoneInput({
               }}
               accept={accept.map((type) => acceptConfig[type])}
             >
-              <Group position="center">
+              <Group align="center">
                 <Dropzone.Accept>
                   <Flex direction="column" align="center" justify="center">
                     <div className={classes.iconDecoration}>
@@ -154,9 +151,9 @@ function FileDropzoneInput({
                   </Flex>
                 </Dropzone.Reject>
                 <Dropzone.Idle>
-                  <Flex direction="column" align="center" justify="center">
+                  <Flex w="100%" direction="column" align="center" justify="center">
                     <div className={classes.iconDecoration}>
-                      {isLoading ? <Loader /> : <IconUploadCloud color="white" />}
+                      {isLoading ? <Loader /> : <IconUploadCloud color="black" />}
                     </div>
                     <FileDropzoneInputStatus accept={accept} maxSizeMb={maxSizeMb} />
                   </Flex>

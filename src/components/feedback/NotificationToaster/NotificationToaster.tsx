@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useContext } from 'react';
 
 import { Divider, Text, UnstyledButton } from '@mantine/core';
 
@@ -6,9 +6,11 @@ import { IconXClose } from '@/components/icons/untitled-ui';
 
 import { NotificationToasterProps } from './NotificationToaster.types';
 
+import { TranslationContext } from '@/components/core/TranslationContext';
 import classes from './NotificationToaster.module.css';
 
-function NotificationToaster({ type, message, rightContent, t }: NotificationToasterProps) {
+function NotificationToaster({ type, message, rightContent }: NotificationToasterProps) {
+  const { dialogs: t } = useContext(TranslationContext);
   return (
     <>
       <div className={`bg-${type}`}></div>

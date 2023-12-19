@@ -1,43 +1,44 @@
-import { Drawer as MantineDrawer } from '@mantine/core'
+import { Drawer as MantineDrawer } from '@mantine/core';
 
-import { useDrawer } from '@/hooks'
+import { useDrawer } from '@/hooks';
 
-import { DrawerProps } from './Drawer.types'
+import { DrawerProps } from './Drawer.types';
 
 function Drawer({
-    position = 'right',
-    size = 392,
-    onClose,
-    children,
-    atom,
-    className,
-    withCloseButton = true,
+  position = 'right',
+  size = 392,
+  onClose,
+  children,
+  atom,
+  className,
+  withCloseButton = true,
 }: DrawerProps) {
-    const [isOpen, { close }] = useDrawer(atom)
+  const [isOpen, { close }] = useDrawer(atom);
 
-    return (
-        <MantineDrawer
-            overlayProps={{
-                opacity: 0.55,
-                blur: 3,
-            }}
-            position={position}
-            opened={isOpen}
-            size={size}
-            padding="xl"
-            withCloseButton={withCloseButton}
-            className={className}
-            onClose={() => {
-                if (onClose) {
-                    setTimeout(() => {
-                        onClose()
-                    }, 300)
-                }
-                close()
-            }}>
-            {children}
-        </MantineDrawer>
-    )
+  return (
+    <MantineDrawer
+      overlayProps={{
+        opacity: 0.55,
+        blur: 3,
+      }}
+      position={position}
+      opened={isOpen}
+      size={size}
+      padding="xl"
+      withCloseButton={withCloseButton}
+      className={className}
+      onClose={() => {
+        if (onClose) {
+          setTimeout(() => {
+            onClose();
+          }, 300);
+        }
+        close();
+      }}
+    >
+      {children}
+    </MantineDrawer>
+  );
 }
 
-export default Drawer
+export default Drawer;

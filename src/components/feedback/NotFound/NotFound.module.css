@@ -1,38 +1,16 @@
-/* import { createStyles } from '@mantine/core'
-
-import { getColorBySchema } from '@/common/utils/color.utils'
-
-export const useStyles = createStyles((theme) => ({
-    emptyList: {
-        'div:nth-of-type(1)': {
-            color: getColorBySchema(theme, 1),
-            fontSize: theme.fontSizes.md,
-            fontWeight: 500,
-            lineHeight: 'normal',
-        },
-        'div:nth-of-type(2)': {
-            color: getColorBySchema(theme, 2),
-            lineHeight: 'normal',
-        },
-        'svg path': {
-            stroke: theme.colorScheme === 'dark' ? theme.white : theme.black,
-        },
-    },
-})) */
-
 .emptyList {
-    & svg path {
-      stroke: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4)); 
-    }
+  & svg path {
+    stroke: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
+  }
 }
 
 .title {
-  color: light-dark(var(--mantine-color-brand-7), var(--mantine-color-brand-2)); 
+  color: light-dark(var(--mantine-color-brand-7), var(--mantine-color-brand-2));
   font-weight: 500;
   line-height: normal;
 }
 
 .description {
-  color: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4)); 
+  color: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
   line-height: normal;
 }

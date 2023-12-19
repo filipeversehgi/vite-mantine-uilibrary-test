@@ -1,0 +1,9 @@
+.cancelBtn {
+  color: var(--mantine-white); /* Adjust the variable name */
+  background-color: var(--mantine-color-6); /* Adjust the variable name */
+  border-color: var(--mantine-color-4); /* Adjust the variable name */
+
+  &:hover {
+    background-color: var(--mantine-dark-gray-8); /* Adjust the variable name */
+  }
+}

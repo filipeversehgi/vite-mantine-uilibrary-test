@@ -1,8 +1,9 @@
-import { MantineThemeComponents, Notification } from "@mantine/core";
+import { Button, MantineThemeComponents } from "@mantine/core";
 
 export const customComponents: MantineThemeComponents = {
-    Notification: Notification.extend({
+    Button: Button.extend({
         styles: {
+
 
         }
     }),

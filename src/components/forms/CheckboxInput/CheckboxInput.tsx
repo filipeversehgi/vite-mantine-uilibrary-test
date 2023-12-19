@@ -1,20 +1,42 @@
-import { useController } from 'react-hook-form'
+import { FieldValues, useController } from 'react-hook-form';
 
-import { Checkbox } from '@mantine/core'
+import { Checkbox } from '@mantine/core';
 
-import { HFCheckboxInputProps } from './CheckboxInput.types'
+import { HFCheckboxInputProps } from './CheckboxInput.types';
 
-function CheckboxInput({ id, label, helperText, required, control, ...props }: HFCheckboxInputProps) {
-    const { field } = useController({
-        control,
-        name: id,
-        defaultValue: false,
-        rules: {
-            required: required,
-        },
-    })
+function CheckboxInput<T extends FieldValues>({
+  name,
+  control,
+  defaultValue,
+  rules,
+  shouldUnregister,
+  onChange,
+  ...props
+}: HFCheckboxInputProps<T>) {
+  const {
+    field: { value, onChange: fieldOnChange, ...field },
+    fieldState,
+  } = useController({
+    control,
+    name,
+    defaultValue,
+    rules,
+    shouldUnregister,
+  });
 
-    return <Checkbox id={id} label={label} description={helperText} {...field} {...props} />
+  return (
+    <Checkbox
+      error={fieldState.error?.message}
+      value={value}
+      checked={value}
+      onChange={(e) => {
+        fieldOnChange(e);
+        onChange?.(e);
+      }}
+      {...field}
+      {...props}
+    />
+  );
 }
 
-export default CheckboxInput
+export default CheckboxInput;

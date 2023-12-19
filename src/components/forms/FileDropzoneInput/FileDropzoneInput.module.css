@@ -1,0 +1,14 @@
+.iconDecoration {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 4px var(--mantine-color-gray-2); /* Adjust the variable name */
+  background-color: var(--mantine-color-white); /* Adjust the variable name */
+
+  svg path {
+    stroke: var(--mantine-color-brand-5); /* Adjust the variable name */
+  }
+}
