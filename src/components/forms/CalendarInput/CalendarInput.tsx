@@ -13,7 +13,6 @@ function $CalendarInput<T extends FieldValues>({
   defaultValue,
   shouldUnregister,
   onChange,
-  withCheckmark,
   rules,
   ...props
 }: CalendarInputProps<T>) {

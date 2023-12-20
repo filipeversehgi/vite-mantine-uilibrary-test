@@ -2,7 +2,7 @@ import { Checkbox, SimpleGrid, Switch, TextInput } from '@mantine/core';
 import { IconLock, IconMail } from '@tabler/icons-react';
 
 export function InputList({ size }: { size: 'md' | 'sm' }) {
-  const conditionallyOrder = (error: any) =>
+  const conditionallyOrder = (error: any): Array<'label' | 'input' | 'error' | 'description'> =>
     !!error ? ['label', 'input', 'error'] : ['label', 'input', 'description'];
 
   return (

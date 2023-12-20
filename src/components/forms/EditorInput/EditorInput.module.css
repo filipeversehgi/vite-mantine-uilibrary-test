@@ -1,0 +1,27 @@
+.editorContainer {
+  position: relative;
+}
+
+.editorErrorContainer {
+  position: relative;
+
+  .ck-rounded-corners .ck.ck-toolbar {
+    border-top-color: var(--mantine-color-error-6); /* Adjust the variable name */
+    border-left-color: var(--mantine-color-error-6); /* Adjust the variable name */
+    border-right-color: var(--mantine-color-error-6); /* Adjust the variable name */
+  }
+
+  .ck-rounded-corners .ck.ck-content {
+    border-bottom-color: var(--mantine-color-error-6); /* Adjust the variable name */
+    border-left-color: var(--mantine-color-error-6); /* Adjust the variable name */
+    border-right-color: var(--mantine-color-error-6); /* Adjust the variable name */
+  }
+}
+
+.rightSection {
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 16px;
+  padding-top: 12px; /* Adjust the variable name */
+}

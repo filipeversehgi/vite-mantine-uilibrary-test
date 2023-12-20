@@ -2,32 +2,32 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { EventInfo } from '@ckeditor/ckeditor5-utils';
 import { memo, useState } from 'react';
-import { FieldError, useController, useFormContext } from 'react-hook-form';
+import { FieldError, FieldValues, useController, useFormContext } from 'react-hook-form';
 
-import { Flex, Text } from '@mantine/core';
+import { Flex, Text, useMantineTheme } from '@mantine/core';
 
-import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconCheck } from '@/components/icons/untitled-ui';
+import { LabelInput } from '@/components/inputs/LabelInput';
 
-import { useStyles } from './EditorInput.styles';
+import classes from './EditorInput.module.css';
 import { EditorInputProps } from './EditorInput.types';
 
-function $EditorInput({
-  id,
+function $EditorInput<T extends FieldValues>({
+  name,
   label,
   placeholder,
+  defaultValue,
   showCheckMark = true,
   required = false,
-  validations,
   control,
   disabled = false,
   maxLength,
-  defaultValue = '',
+  rules,
   toolbar = ['heading', '|', 'bold', 'italic', 'bulletedList', 'numberedList', '|', 'undo', 'redo'],
   ...props
-}: EditorInputProps) {
-  const { classes, theme } = useStyles();
+}: EditorInputProps<T>) {
   const [canRenderCheckmark, setCanRenderCheckmark] = useState(false);
+  const theme = useMantineTheme();
   const [data] = useState(defaultValue);
   const [isDirty, setDirty] = useState(false);
   const { setValue, setError, clearErrors } = useFormContext();
@@ -37,30 +37,26 @@ function $EditorInput({
     fieldState: { invalid, error: fieldError },
   } = useController({
     control,
-    name: id,
+    name,
     defaultValue,
-    rules: {
-      required: required,
-      minLength: validations?.rules?.minLength,
-      maxLength: validations?.rules?.maxLength,
-      pattern: new RegExp(validations?.rules?.regex || ''),
-      validate: validations?.rules?.validate,
-    },
+    rules,
   });
-  const error = formState.errors[id] as FieldError | undefined;
+
+  const error = formState.errors[name] as FieldError | undefined;
   const handleReady = (editor: typeof ClassicEditor) => {
     editor.ui
       .getEditableElement()
       .parentElement.insertBefore(editor.ui.view.toolbar.element, editor.ui.getEditableElement());
   };
+
   const handleOnChange = (event: EventInfo<string, unknown>, editor: typeof ClassicEditor) => {
     setDirty(true);
     const value: string = editor.getData();
     if (maxLength) {
-      if (value.length > maxLength) setError(id, { type: 'maxLength' });
-      else clearErrors(`${id}.maxLength`);
+      if (value.length > maxLength) setError(name, { type: 'maxLength' });
+      else clearErrors(`${name}.maxLength`);
     }
-    setValue(id, value);
+    setValue(name, value as any);
   };
 
   const handleOnBlur = (event: EventInfo<string, unknown>, editor: typeof ClassicEditor) => {
@@ -70,10 +66,10 @@ function $EditorInput({
     field.onBlur();
 
     if (required && value.length === 0) {
-      setError(id, { type: 'required' });
+      setError(name, { type: 'required', message: 'Required' });
     } else {
       setCanRenderCheckmark(true);
-      clearErrors(`${id}.required`);
+      clearErrors(`${name}.required`);
     }
     props?.onBlur && props.onBlur(event, value);
   };
@@ -99,7 +95,7 @@ function $EditorInput({
         <CKEditor
           data={data}
           disabled={disabled}
-          id={id}
+          id={name}
           editor={ClassicEditor}
           config={{ placeholder }}
           onReady={handleReady}

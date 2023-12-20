@@ -1,9 +1,6 @@
-import { withReactHookForm } from '@/stories/hook-form-decorator';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Meta, StoryObj } from '@storybook/react';
-import { z } from 'zod';
-import SearchInput from './SearchInput';
 import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
+import { SearchInput } from './SearchInput';
 
 /**
  * Search box with debunced onChange event

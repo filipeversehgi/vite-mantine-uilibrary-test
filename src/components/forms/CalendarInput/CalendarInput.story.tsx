@@ -2,7 +2,7 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import CalendarInput from './CalendarInput';
+import { CalendarInput } from './CalendarInput';
 
 /**
  * Calendar Input connected with React Hook Form.

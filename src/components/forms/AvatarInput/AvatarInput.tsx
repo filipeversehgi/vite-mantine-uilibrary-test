@@ -4,8 +4,8 @@ import { FieldError, FieldValues, useController, useFormContext } from 'react-ho
 import { ActionIcon, Flex, Text, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconEdit2, IconMonitor2, IconTrash } from '@/components/icons/untitled-ui';
+import { LabelInput } from '@/components/inputs/LabelInput';
 import { UploadedObject } from '@/components/overlay/UploadFileDialog/UploadFileDialog.types';
 
 import { Avatar } from '@/components/core/Avatar';
@@ -24,7 +24,7 @@ function $AvatarInput<T extends FieldValues>({
   const theme = useMantineTheme();
   const [opened, { open, close }] = useDisclosure(false);
   const { setError, clearErrors, formState, setValue } = useFormContext();
-  const { field } = useController<T>({
+  const { field, fieldState } = useController<T>({
     control,
     name,
     rules: { required: required },
@@ -42,7 +42,7 @@ function $AvatarInput<T extends FieldValues>({
   const handleRemoveImage = () => {
     validateRequired();
     field.onChange([]);
-    setValue(`${name}-dropzone`, []);
+    setValue(`${name}-dropzone`, [] as any);
   };
 
   useEffect(() => {
@@ -85,7 +85,7 @@ function $AvatarInput<T extends FieldValues>({
         </span>
       </div>
       <Text fz="xs" color="red.6">
-        {errors[name]?.message}
+        {fieldState.error?.message}
       </Text>
     </Flex>
   );

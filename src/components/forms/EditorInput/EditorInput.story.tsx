@@ -2,16 +2,16 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import { NumberInput } from './NumberInput';
+import { EditorInput } from './EditorInput';
 
 /**
- * Number Input connected with React Hook Form.
- * <br />Based on Mantine.
+ * Calendar Input connected with React Hook Form.
+ * <br />It's based on Mantine DateInput
  */
-const meta: Meta<typeof NumberInput> = {
-  component: NumberInput,
+const meta: Meta<typeof EditorInput> = {
+  component: EditorInput,
   tags: ['autodocs'],
-  title: 'Forms/NumberInput',
+  title: 'Forms/EditorInput',
   decorators: [withReactHookForm],
   parameters: {
     docs: {
@@ -20,31 +20,26 @@ const meta: Meta<typeof NumberInput> = {
     },
   },
   args: {
-    label: 'Pick a number',
-    required: true,
+    label: 'Enter your text',
+    required: false,
     name: 'myfield',
-    withCheckmark: true,
-    placeholder: 'Pick one',
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof NumberInput>;
+type Story = StoryObj<typeof EditorInput>;
 
 export const Default: Story = {};
 
 export const WithValidation: Story = {
   args: {
-    label: 'Pick a number between 10 and 200',
-    name: 'myfield',
-    placeholder: 'Pick one',
-    withCheckmark: true,
+    required: true,
   },
   parameters: {
     resolver: zodResolver(
       z.object({
-        myfield: z.number().min(10).max(200),
+        myfield: z.string(),
       })
     ),
   },

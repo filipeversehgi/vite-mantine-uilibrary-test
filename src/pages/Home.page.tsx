@@ -2,7 +2,6 @@ import { ColorSchemaToggle } from '@/components/core/ColorSchemaToggle';
 import {
   Button,
   ButtonProps,
-  ButtonVariant,
   Card,
   Container,
   Divider,
@@ -87,7 +86,7 @@ export function ButtonList({
   variant,
   color,
 }: {
-  variant: ButtonVariant;
+  variant: ButtonProps['variant'];
   color: ButtonProps['color'];
 }) {
   return (
@@ -190,16 +189,16 @@ export function TypeList({ size, title }: { size: TextProps['size']; title: stri
     <>
       <Text mt="xl">{title}</Text>
       <SimpleGrid cols={4}>
-        <Text size={size} order={size} fw={200}>
+        <Text size={size} fw={200}>
           {text}
         </Text>
-        <Text size={size} order={size} fw={400}>
+        <Text size={size} fw={400}>
           {text}
         </Text>
-        <Text size={size} order={size} fw={500}>
+        <Text size={size} fw={500}>
           {text}
         </Text>
-        <Text size={size} order={size} fw={700}>
+        <Text size={size} fw={700}>
           {text}
         </Text>
       </SimpleGrid>
