@@ -1,1 +1,1 @@
-export { default as IconEye } from './Eye'
+export { default as IconEye } from './Eye';

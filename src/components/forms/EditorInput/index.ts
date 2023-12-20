@@ -1,1 +1,1 @@
-export { default as EditorInput } from './EditorInput'
+export { EditorInput } from './EditorInput';

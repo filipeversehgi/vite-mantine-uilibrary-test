@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import ColorSchemaToggle from './ColorSchemaToggle';
+import { ColorSchemaToggle } from './ColorSchemaToggle';
 
 /**
  * Swaps color schema between dark and light

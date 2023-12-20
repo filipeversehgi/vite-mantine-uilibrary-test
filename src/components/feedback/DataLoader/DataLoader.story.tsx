@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import DataLoader from './DataLoader';
+import { DataLoader } from './DataLoader';
 
 /**
  * Loader to be used inside components

@@ -4,7 +4,7 @@ import { useDrawer } from '@/hooks';
 
 import { DrawerProps } from './Drawer.types';
 
-function Drawer({
+export function Drawer({
   position = 'right',
   size = 392,
   onClose,
@@ -40,5 +40,3 @@ function Drawer({
     </MantineDrawer>
   );
 }
-
-export default Drawer;

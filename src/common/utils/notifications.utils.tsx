@@ -20,11 +20,4 @@ function show(id: string, type: NotificationToasterType, message: string) {
   });
 }
 
-function showDefaultException(id = 'generic-exception') {
-  const type: NotificationToasterType = 'error';
-  const message = t('exceptions:default').toString();
-
-  show(id, type, message);
-}
-
-export const Notification = { show, showDefaultException };
+export const Notification = { show };

@@ -1,1 +1,2 @@
-export { default as DataLoader } from './DataLoader'
+export { DataLoader } from './DataLoader';
+

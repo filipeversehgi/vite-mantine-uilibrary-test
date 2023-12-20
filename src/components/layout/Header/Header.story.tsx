@@ -1,6 +1,6 @@
 import { Title } from '@mantine/core';
 import { Meta, StoryObj } from '@storybook/react';
-import Header from './Header';
+import { Header } from './Header';
 
 /**
  * Collapsable header component

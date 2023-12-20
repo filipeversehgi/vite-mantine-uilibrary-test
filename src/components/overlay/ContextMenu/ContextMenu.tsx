@@ -5,7 +5,7 @@ import { useViewportSize } from '@mantine/hooks';
 
 import { MENU_HEIGHT } from './constants';
 
-export default function useContextMenu() {
+export function useContextMenu() {
   const theme = useMantineTheme();
   const { height } = useViewportSize();
   const [contextMenuOpened, setContextMenuOpened] = useState(false);

@@ -1,1 +1,1 @@
-export { default as IconCheckSquareBroken } from './CheckSquareBroken'
+export { default as IconCheckSquareBroken } from './CheckSquareBroken';

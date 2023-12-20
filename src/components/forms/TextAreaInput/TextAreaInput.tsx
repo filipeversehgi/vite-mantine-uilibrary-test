@@ -95,4 +95,4 @@ function HFTextAreaInput<T extends FieldValues>({
 
 const HFTextAreaWithCheckmark = withCheckmark(HFTextAreaInput);
 
-export default memo(HFTextAreaWithCheckmark);
+export const TextAreaInput = memo(HFTextAreaWithCheckmark);

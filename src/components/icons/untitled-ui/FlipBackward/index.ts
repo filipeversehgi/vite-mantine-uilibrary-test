@@ -1,1 +1,1 @@
-export { default as IconFlipBackward } from './FlipBackward'
+export { default as IconFlipBackward } from './FlipBackward';

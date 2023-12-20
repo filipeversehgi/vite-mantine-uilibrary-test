@@ -1,1 +1,1 @@
-export { default as IconPhone } from './Phone'
+export { default as IconPhone } from './Phone';

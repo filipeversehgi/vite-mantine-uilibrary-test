@@ -1,16 +1,3 @@
-import { FieldError } from 'react-hook-form'
-
-import { ValidationErrorsType, ValidationObject } from '@/components/forms/types'
-
-export type ValidationObjectSchema<T> = {
-    [key in keyof T]: ValidationObject<T>
-}
-
-/**
- * Extract validation message from react-hook-form
- */
-export const getValidationMessage = (validations: ValidationObject, error: FieldError | undefined) =>
-    validations?.messages[(error as FieldError)?.type as keyof ValidationErrorsType]
 
 /**
  * Validations

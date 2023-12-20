@@ -1,1 +1,1 @@
-export { default as IconMoonStar } from './MoonStar'
+export { default as IconMoonStar } from './MoonStar';

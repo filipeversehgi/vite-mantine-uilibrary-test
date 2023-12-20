@@ -1,6 +1,6 @@
 import Logo from '@/assets/images/sample-company-logo.jpg';
 import { Meta, StoryObj } from '@storybook/react';
-import GlobalLoader from './GlobalLoader';
+import { GlobalLoader } from './GlobalLoader';
 
 /**
  * Loader that covers the entire page

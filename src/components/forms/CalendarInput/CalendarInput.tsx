@@ -7,7 +7,7 @@ import { IconCalendar } from '@/components/icons/untitled-ui';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
 import { CalendarInputProps } from './CalendarInput.types';
 
-function CalendarInput<T extends FieldValues>({
+function $CalendarInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -43,6 +43,4 @@ function CalendarInput<T extends FieldValues>({
   );
 }
 
-const CalendarInputWithCheckmark = withCheckmark(CalendarInput);
-
-export default CalendarInputWithCheckmark;
+export const CalendarInput = withCheckmark($CalendarInput);

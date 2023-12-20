@@ -6,7 +6,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import classes from './Header.module.css';
 import { HeaderProps } from './Header.types';
 
-function Header({ onToggle, logo, onlyForMobile = false }: HeaderProps) {
+export function Header({ onToggle, logo, onlyForMobile = false }: HeaderProps) {
   const theme = useMantineTheme();
   const matches = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
@@ -19,5 +19,3 @@ function Header({ onToggle, logo, onlyForMobile = false }: HeaderProps) {
     </Flex>
   );
 }
-
-export default Header;

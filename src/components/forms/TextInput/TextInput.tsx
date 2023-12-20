@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
-import { TextInput } from '@mantine/core';
+import { $TextInput } from '@mantine/core';
 
 import { HFTextInputProps } from './TextInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
@@ -27,7 +27,7 @@ function HFTextInput<T extends FieldValues>({
   });
 
   return (
-    <TextInput
+    <$TextInput
       value={value}
       onChange={(e) => {
         fieldOnChange(e);
@@ -40,4 +40,4 @@ function HFTextInput<T extends FieldValues>({
   );
 }
 
-export default memo(withCheckmark(HFTextInput));
+export const TextInput = memo(withCheckmark(HFTextInput));

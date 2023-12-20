@@ -1,1 +1,1 @@
-export { default as IconCursorBox } from './CursorBox'
+export { default as IconCursorBox } from './CursorBox';

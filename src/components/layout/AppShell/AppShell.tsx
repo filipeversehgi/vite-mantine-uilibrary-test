@@ -4,7 +4,7 @@ import { Container, AppShell as MantineShell } from '@mantine/core';
 
 import { AppShellProps } from './AppShell.types';
 
-function AppShell({ navbar, header, children, headerConfig, navbarConfig }: AppShellProps) {
+export function AppShell({ navbar, header, children, headerConfig, navbarConfig }: AppShellProps) {
   return (
     <MantineShell header={headerConfig} navbar={navbarConfig}>
       <MantineShell.Header>{header}</MantineShell.Header>
@@ -17,5 +17,3 @@ function AppShell({ navbar, header, children, headerConfig, navbarConfig }: AppS
     </MantineShell>
   );
 }
-
-export default AppShell;

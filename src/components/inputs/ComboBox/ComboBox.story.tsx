@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import ComboBox from './ComboBox';
+import { ComboBox } from './ComboBox';
 import { ComboBoxProps } from './ComboBox.types';
 
 /**

@@ -6,7 +6,7 @@ import { NotFoundProps } from './NotFound.types';
 
 import classes from './NotFound.module.css';
 
-function NotFound({ title, description, height }: NotFoundProps) {
+export function NotFound({ title, description, height }: NotFoundProps) {
   return (
     <Flex
       h={height}
@@ -27,5 +27,3 @@ function NotFound({ title, description, height }: NotFoundProps) {
     </Flex>
   );
 }
-
-export default NotFound;

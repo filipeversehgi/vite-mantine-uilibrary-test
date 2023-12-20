@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core';
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import ConfirmDialog from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 
 /**
  * Confirm dialog based on Mantine Modal

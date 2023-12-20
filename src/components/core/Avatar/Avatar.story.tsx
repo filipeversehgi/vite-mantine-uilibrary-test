@@ -1,6 +1,6 @@
 import AvatarImage from '@/assets/images/sample-avatar.jpg';
 import { Meta, StoryObj } from '@storybook/react';
-import Avatar from './Avatar';
+import { Avatar } from './Avatar';
 
 /**
  * Avatar with image which falls back to fixed colors based on the first letter

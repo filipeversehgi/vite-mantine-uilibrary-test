@@ -10,7 +10,7 @@ export interface GlobalLoaderProps {
   alt: string;
 }
 
-function GlobalLoader({ logo, alt, w }: GlobalLoaderProps) {
+function $GlobalLoader({ logo, alt, w }: GlobalLoaderProps) {
   return (
     <Flex className={classes.container} align="center" justify="center" direction={'column'}>
       <div className={classes.logoContainer}>
@@ -21,4 +21,4 @@ function GlobalLoader({ logo, alt, w }: GlobalLoaderProps) {
   );
 }
 
-export default memo(GlobalLoader);
+export const GlobalLoader = memo($GlobalLoader);

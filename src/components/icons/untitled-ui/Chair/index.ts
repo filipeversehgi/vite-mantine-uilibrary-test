@@ -1,1 +1,1 @@
-export { default as IconChair } from './Chair'
+export { default as IconChair } from './Chair';

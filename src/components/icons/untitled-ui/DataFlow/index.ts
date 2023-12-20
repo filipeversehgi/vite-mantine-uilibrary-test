@@ -1,1 +1,1 @@
-export { default as IconDataFlow } from './DataFlow'
+export { default as IconDataFlow } from './DataFlow';

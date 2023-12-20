@@ -1,11 +1,5 @@
-/**
- * Drawers
- */
-export * from './Drawer'
-
-/**
- * Modals
- */
-export * from './ConfirmDialog'
-export * from './UploadFileDialog'
-export * from './MessageDialog'
+export * from './ConfirmDialog';
+export * from './ContextMenu';
+export * from './Drawer';
+export * from './MessageDialog';
+export * from './UploadFileDialog';

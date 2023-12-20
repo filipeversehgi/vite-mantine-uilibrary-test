@@ -1,1 +1,1 @@
-export { default as IconBell } from './Bell'
+export { default as IconBell } from './Bell';

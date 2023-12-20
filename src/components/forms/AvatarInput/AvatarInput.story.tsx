@@ -2,7 +2,7 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import AvatarInput from './AvatarInput';
+import { AvatarInput } from './AvatarInput';
 
 /**
  * Avatar Input connected with React Hook Form.

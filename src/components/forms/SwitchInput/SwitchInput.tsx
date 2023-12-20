@@ -40,7 +40,7 @@ function SwitchInput<T extends FieldValues>({
   );
 }
 
-SwitchInput.Item = Switch;
-SwitchInput.Group = SwitchGroup;
-
-export default SwitchInput;
+export const SwitchInput = {
+  Item = Switch,
+  Group = SwitchGroup
+};

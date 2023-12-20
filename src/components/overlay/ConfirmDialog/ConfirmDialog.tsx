@@ -6,7 +6,7 @@ import { ConfirmDialogProps } from './ConfirmDialog.types';
 
 import classes from './ConfirmDialog.module.css';
 
-function ConfirmDialog({
+export function ConfirmDialog({
   title,
   children,
   isLoading = false,
@@ -57,5 +57,3 @@ function ConfirmDialog({
     </Modal>
   );
 }
-
-export default ConfirmDialog;

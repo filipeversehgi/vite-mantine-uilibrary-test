@@ -1,1 +1,1 @@
-export { default as IconFileSearch } from './FileSearch'
+export { default as IconFileSearch } from './FileSearch';

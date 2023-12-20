@@ -1,1 +1,1 @@
-export { default as IconSun } from './Sun'
+export { default as IconSun } from './Sun';

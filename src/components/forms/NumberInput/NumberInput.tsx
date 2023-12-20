@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
-import { NumberInput, useMantineTheme } from '@mantine/core';
+import { NumberInput as $NumberInput, useMantineTheme } from '@mantine/core';
 
 import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconCheck } from '@/components/icons/untitled-ui';
@@ -37,7 +37,7 @@ function HFNumberInput<T extends FieldValues>({
   });
 
   return (
-    <NumberInput
+    <$NumberInput
       value={value}
       onChange={(e) => {
         fieldOnChange(e);
@@ -60,4 +60,4 @@ function HFNumberInput<T extends FieldValues>({
 
 const NumberInputWithCheckmark = withCheckmark(HFNumberInput);
 
-export default memo(NumberInputWithCheckmark);
+export const NumberInput = memo(NumberInputWithCheckmark);

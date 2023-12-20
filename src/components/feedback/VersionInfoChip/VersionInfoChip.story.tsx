@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import VersionInfoChip from './VersionInfoChip';
+import { VersionInfoChip } from './VersionInfoChip';
 
 /**
  * Used to display the build version on development versions

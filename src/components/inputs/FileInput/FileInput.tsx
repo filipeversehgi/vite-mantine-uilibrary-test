@@ -1,27 +1,27 @@
-import { forwardRef, ForwardRefRenderFunction } from 'react'
+import { forwardRef, ForwardRefRenderFunction } from 'react';
 
-import { FileInput as InputFile } from '@mantine/core'
+import { FileInput as InputFile } from '@mantine/core';
 
-import { FileInputProps } from './FileInput.types'
+import { FileInputProps } from './FileInput.types';
 
-const FileInput: ForwardRefRenderFunction<HTMLButtonElement, FileInputProps> = (
-    { id, label, required, placeholder, helperText, onChange, onBlur, name, ...props },
-    ref
+const $FileInput: ForwardRefRenderFunction<HTMLButtonElement, FileInputProps> = (
+  { id, label, required, placeholder, helperText, onChange, onBlur, name, ...props },
+  ref
 ) => {
-    return (
-        <InputFile
-            id={id}
-            label={label}
-            required={required}
-            placeholder={placeholder}
-            description={helperText}
-            onChange={onChange}
-            onBlur={onBlur}
-            name={name}
-            ref={ref}
-            {...props}
-        />
-    )
-}
+  return (
+    <InputFile
+      id={id}
+      label={label}
+      required={required}
+      placeholder={placeholder}
+      description={helperText}
+      onChange={onChange}
+      onBlur={onBlur}
+      name={name}
+      ref={ref}
+      {...props}
+    />
+  );
+};
 
-export default forwardRef(FileInput)
+export const FileInput = forwardRef($FileInput);

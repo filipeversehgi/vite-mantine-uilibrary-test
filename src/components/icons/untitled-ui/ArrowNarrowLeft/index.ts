@@ -1,1 +1,1 @@
-export { default as IconArrowNarrowLeft } from './ArrowNarrowLeft'
+export { default as IconArrowNarrowLeft } from './ArrowNarrowLeft';

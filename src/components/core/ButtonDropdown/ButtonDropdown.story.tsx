@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { IconHorse, IconLock, IconPencil } from '@tabler/icons-react';
-import ButtonDropdown from './ButtonDropdown';
+import { ButtonDropdown } from './ButtonDropdown';
 
 /**
  * Button that opens a dropdown menu with a set of options

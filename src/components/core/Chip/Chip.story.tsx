@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { IconCrown } from '@tabler/icons-react';
-import Chip from './Chip';
+import { Chip } from './Chip';
 
 /**
  * A small tag-like component used to display short information

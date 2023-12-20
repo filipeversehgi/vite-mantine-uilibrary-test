@@ -5,7 +5,7 @@ import { Flex, Text } from '@mantine/core';
 import { TranslationContext } from '@/components/core/TranslationContext/TranslationContext';
 import { LabelInputProps } from './LabelInput.types';
 
-function LabelInput({ label, required = false, disabled = false }: LabelInputProps) {
+function $LabelInput({ label, required = false, disabled = false }: LabelInputProps) {
   if (!label) return <></>;
 
   const labelColor = disabled ? 'light.2' : 'light.0';
@@ -27,4 +27,4 @@ function LabelInput({ label, required = false, disabled = false }: LabelInputPro
   );
 }
 
-export default memo(LabelInput);
+export const LabelInput = memo($LabelInput);

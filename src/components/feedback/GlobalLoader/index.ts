@@ -1,1 +1,2 @@
-export { default as GlobalLoader } from './GlobalLoader'
+export { GlobalLoader } from './GlobalLoader';
+

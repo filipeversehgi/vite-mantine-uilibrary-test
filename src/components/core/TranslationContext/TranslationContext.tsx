@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
-export type Translations = {
+export type ITranslations = {
   forms: {
     optional: string;
   };
@@ -20,7 +20,7 @@ export type Translations = {
   };
 };
 
-const DefaultTranslations: Translations = {
+export const DefaultTranslations: ITranslations = {
   forms: {
     optional: 'Optional',
   },
@@ -40,14 +40,14 @@ const DefaultTranslations: Translations = {
   },
 };
 
-export const TranslationContext = createContext<Translations>(DefaultTranslations);
+export const TranslationContext = createContext<ITranslations>(DefaultTranslations);
 
 export function TranslationProvider({
   children,
   translation = DefaultTranslations,
 }: {
   children: React.ReactNode;
-  translation?: Translations;
+  translation?: ITranslations;
 }) {
   return <TranslationContext.Provider value={translation}>{children}</TranslationContext.Provider>;
 }

@@ -1,1 +1,1 @@
-export { default as FadeUp } from './FadeUp'
+export { FadeUp } from './FadeUp';

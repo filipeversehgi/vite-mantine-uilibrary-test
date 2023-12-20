@@ -1,1 +1,2 @@
-export { default as NotificationToaster } from './NotificationToaster'
+export { NotificationToaster } from './NotificationToaster';
+

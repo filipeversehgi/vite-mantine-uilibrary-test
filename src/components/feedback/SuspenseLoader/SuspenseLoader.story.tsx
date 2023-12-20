@@ -1,6 +1,6 @@
 import Logo from '@/assets/images/sample-company-logo.jpg';
 import { Meta, StoryObj } from '@storybook/react';
-import SuspenseLoader from './SuspenseLoader';
+import { SuspenseLoader } from './SuspenseLoader';
 
 /**
  * Suspense component with auto-loading indicator

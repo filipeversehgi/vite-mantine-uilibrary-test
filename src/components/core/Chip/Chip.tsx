@@ -4,7 +4,7 @@ import { Badge } from '@mantine/core';
 
 import { ChipProps } from './Chip.types';
 
-function Chip({ label, icon, showStatusCircle = false, ...props }: ChipProps) {
+function $Chip({ label, icon, showStatusCircle = false, ...props }: ChipProps) {
   const statusCircle = showStatusCircle ? <div></div> : undefined;
 
   return (
@@ -14,5 +14,4 @@ function Chip({ label, icon, showStatusCircle = false, ...props }: ChipProps) {
   );
 }
 
-export default memo(Chip);
-('');
+export const Chip = memo($Chip);

@@ -2,7 +2,7 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import PasswordInput from './PasswordInput';
+import {PasswordInput} from './PasswordInput';
 
 /**
  * Password Input with tooltip showing requirements, connected with React Hook Form.

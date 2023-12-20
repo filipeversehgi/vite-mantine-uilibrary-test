@@ -5,7 +5,7 @@ import { LoadingButton } from '@/components/core/LoadingButton';
 
 import { ButtonDropdownProps } from './ButtonDropdown.types';
 
-function ButtonDropdown({
+export function ButtonDropdown({
   label,
   dropdownItems = [],
   isLoading = false,
@@ -58,5 +58,3 @@ function ButtonDropdown({
     </Menu>
   );
 }
-
-export default ButtonDropdown;

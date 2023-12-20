@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import AppShell from './AppShell';
+import { AppShell } from './AppShell';
 
 /**
  * AppShell with customized header and navbar

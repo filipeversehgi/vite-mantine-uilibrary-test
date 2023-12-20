@@ -1,1 +1,1 @@
-export { default as IconLightning } from './Lightning'
+export { default as IconLightning } from './Lightning';

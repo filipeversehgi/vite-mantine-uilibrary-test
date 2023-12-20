@@ -1,1 +1,1 @@
-export { default as MessageDialog } from './MessageDialog'
+export { MessageDialog } from './MessageDialog';

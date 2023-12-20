@@ -6,7 +6,7 @@ import { RadioInputProps } from './RadioInput.types';
 
 import classes from './RadioInput.module.css';
 
-const RadioInput: ForwardRefRenderFunction<HTMLInputElement, RadioInputProps> = (
+const $RadioInput: ForwardRefRenderFunction<HTMLInputElement, RadioInputProps> = (
   { id, label, placeholder, required, helperText, enumValues, name, ...props },
   ref
 ) => {
@@ -35,4 +35,4 @@ const RadioInput: ForwardRefRenderFunction<HTMLInputElement, RadioInputProps> = 
   );
 };
 
-export default forwardRef(RadioInput);
+export const RadioInput = forwardRef($RadioInput);

@@ -1,1 +1,1 @@
-export { default as IconCreditCard2 } from './CreditCard2'
+export { default as IconCreditCard2 } from './CreditCard2';

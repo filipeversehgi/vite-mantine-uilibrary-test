@@ -2,16 +2,16 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import SwitchInput from './SwitchInput';
+import {SwitchInput} from './SwitchInput';
 
 /**
  * Switch Component connected with React Hook Form.
  * <br />Based on Mantine Switch component.
  */
-const meta: Meta<typeof SwitchInput> = {
-  component: SwitchInput,
+const meta: Meta<typeof SwitchInput.Item> = {
+  component: SwitchInput.Item,
   tags: ['autodocs'],
-  title: 'Forms/SwitchInput',
+  title: 'Forms/SwitchInput.Item',
   decorators: [withReactHookForm],
   parameters: {
     docs: {
@@ -28,7 +28,7 @@ const meta: Meta<typeof SwitchInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SwitchInput>;
+type Story = StoryObj<typeof SwitchInput.Item>;
 
 export const Default: Story = {};
 

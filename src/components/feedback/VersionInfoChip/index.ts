@@ -1,1 +1,2 @@
-export { default as VersionInfoChip } from './VersionInfoChip'
+export { VersionInfoChip } from './VersionInfoChip';
+

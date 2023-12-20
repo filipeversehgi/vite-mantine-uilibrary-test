@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import NotFound from './NotFound';
+import { NotFound } from './NotFound';
 
 /**
  * Not found customizable component

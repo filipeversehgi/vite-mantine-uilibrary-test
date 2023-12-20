@@ -1,1 +1,1 @@
-export { default as IconBankNote } from './BankNote'
+export { default as IconBankNote } from './BankNote';

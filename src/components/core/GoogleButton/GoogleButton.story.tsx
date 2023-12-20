@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import GoogleButton from './GoogleButton';
+import { GoogleButton } from './GoogleButton';
 
 /**
  * A Google Button

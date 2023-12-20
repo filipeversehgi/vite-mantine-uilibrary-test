@@ -4,7 +4,7 @@ import { MultiSelect } from '@mantine/core';
 
 import { ComboBoxProps } from './ComboBox.types';
 
-export default function ComboBox({ value, onChange, options, placeholder }: ComboBoxProps) {
+export function ComboBox({ value, onChange, options, placeholder }: ComboBoxProps) {
   const multiSelectRef = useRef<HTMLInputElement | null>(null);
   const [showLimitMessage, setShowLimitMessage] = useState<boolean>(false);
   const [totalSelectedWidth, setTotalSelectedWidth] = useState(0);

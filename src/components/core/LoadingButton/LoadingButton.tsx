@@ -4,7 +4,7 @@ import { Button } from '@mantine/core';
 
 import { LoadingButtonProps } from './LoadingButton.types';
 
-const LoadingButton: ForwardRefRenderFunction<HTMLButtonElement, LoadingButtonProps> = (
+const $LoadingButton: ForwardRefRenderFunction<HTMLButtonElement, LoadingButtonProps> = (
   { isLoading, disabled, children, ...buttonProps },
   ref
 ) => {
@@ -15,4 +15,4 @@ const LoadingButton: ForwardRefRenderFunction<HTMLButtonElement, LoadingButtonPr
   );
 };
 
-export default memo(forwardRef(LoadingButton));
+export const LoadingButton = memo(forwardRef($LoadingButton));

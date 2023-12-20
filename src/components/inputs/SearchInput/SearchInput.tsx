@@ -7,7 +7,7 @@ import { IconSearchMd, IconXClose } from '@/components/icons/untitled-ui';
 
 import { SearchInputProps } from './SearchInput.types';
 
-function SearchInput({
+export function SearchInput({
   id,
   placeholder,
   onDebounceChange,
@@ -49,5 +49,3 @@ function SearchInput({
     />
   );
 }
-
-export default SearchInput;

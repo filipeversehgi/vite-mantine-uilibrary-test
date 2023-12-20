@@ -1,1 +1,1 @@
-export { default as IconExternalLink } from './ExternalLink'
+export { default as IconExternalLink } from './ExternalLink';

@@ -1,1 +1,1 @@
-export { default as IconRows } from './Rows'
+export { default as IconRows } from './Rows';

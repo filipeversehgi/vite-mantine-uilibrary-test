@@ -16,7 +16,7 @@ import FileDropzoneInputStatus from './FileDropzoneInputStatus/FileDropzoneInput
 
 const MEGA_BYTE = 1024 ** 2;
 
-function FileDropzoneInput({
+export function FileDropzoneInput({
   id,
   label,
   accept,
@@ -173,5 +173,3 @@ function FileDropzoneInput({
     </Flex>
   );
 }
-
-export default FileDropzoneInput;

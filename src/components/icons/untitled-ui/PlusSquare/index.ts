@@ -1,1 +1,1 @@
-export { default as IconPlusSquare } from './PlusSquare'
+export { default as IconPlusSquare } from './PlusSquare';

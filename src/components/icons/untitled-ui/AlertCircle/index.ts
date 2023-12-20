@@ -1,1 +1,1 @@
-export { default as IconAlertCircle } from './AlertCircle'
+export { default as IconAlertCircle } from './AlertCircle';

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import LoadingButton from './LoadingButton';
+import { LoadingButton } from './LoadingButton';
 
 /**
  * Wraps a Button into loading state

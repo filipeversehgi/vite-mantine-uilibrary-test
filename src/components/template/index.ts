@@ -1,5 +1,0 @@
-export { AppPageTemplate } from './AppPageTemplate'
-export { AuthTemplate } from './AuthTemplate'
-export { CRUDTemplate } from './CRUDTemplate'
-export { PageMetaTemplate } from './PageMetaTemplate'
-export { SettingsTemplate } from './SettingsTemplate'

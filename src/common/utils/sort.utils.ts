@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Row } from '@tanstack/react-table'
 export interface SortedConfig<T> {
     key: keyof T | string
     order?: 'asc' | 'desc'
@@ -39,11 +38,4 @@ function recursiveSort<T>(a: T, b: T, sortArray: Array<SortedConfig<T>>): number
 export function sortBy<T>(array: Array<T>, sortConfig: Array<SortedConfig<T>>): Array<T> {
     const clonedArray = [...array]
     return clonedArray.sort((a, b) => recursiveSort(a, b, [...sortConfig]))
-}
-
-export function tableColumnSort<T>(rowA: Row<T>, rowB: Row<T>, columnId: string): number {
-    const valA: any = rowA.getValue(columnId)
-    const valB: any = rowB.getValue(columnId)
-    if (typeof valA === 'string') return valA.toString().localeCompare(valB, undefined, { sensitivity: 'base' })
-    return valA < valB ? -1 : valA > valB ? 1 : 0
 }

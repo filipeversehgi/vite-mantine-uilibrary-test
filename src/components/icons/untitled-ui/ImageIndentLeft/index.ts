@@ -1,1 +1,1 @@
-export { default as IconImageIndentLeft } from './ImageIndentLeft'
+export { default as IconImageIndentLeft } from './ImageIndentLeft';

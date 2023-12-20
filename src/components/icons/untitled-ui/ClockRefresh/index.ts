@@ -1,1 +1,1 @@
-export { default as IconClockRefresh } from './ClockRefresh'
+export { default as IconClockRefresh } from './ClockRefresh';

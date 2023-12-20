@@ -1,1 +1,1 @@
-export { default as IconXClose } from './XClose'
+export { default as IconXClose } from './XClose';

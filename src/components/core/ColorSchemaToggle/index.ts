@@ -1,1 +1,2 @@
-export { default as ColorSchemaToggle } from './ColorSchemaToggle'
+export { ColorSchemaToggle } from './ColorSchemaToggle';
+

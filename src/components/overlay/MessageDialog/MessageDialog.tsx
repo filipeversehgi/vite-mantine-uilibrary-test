@@ -6,7 +6,7 @@ import { MessageDialogProps } from './MessageDialog.types';
 
 import classes from './MessageDialog.module.css';
 
-function MessageDialog({
+export function MessageDialog({
   title,
   description,
   opened,
@@ -46,5 +46,3 @@ function MessageDialog({
     </Modal>
   );
 }
-
-export default MessageDialog;

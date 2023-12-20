@@ -4,7 +4,7 @@ import { Checkbox } from '@mantine/core';
 
 import { HFCheckboxInputProps } from './CheckboxInput.types';
 
-function CheckboxInput<T extends FieldValues>({
+export function CheckboxInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -38,5 +38,3 @@ function CheckboxInput<T extends FieldValues>({
     />
   );
 }
-
-export default CheckboxInput;

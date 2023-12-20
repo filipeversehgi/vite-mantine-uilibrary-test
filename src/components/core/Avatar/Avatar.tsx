@@ -5,7 +5,7 @@ import { Avatar as MantineAvatar } from '@mantine/core';
 import { AvatarImageProps } from './Avatar.types';
 import AvatarColor from './AvatarColor';
 
-function Avatar({ alt, src, radius = 'xl', size = 30, fallback }: AvatarImageProps) {
+function $Avatar({ alt, src, radius = 'xl', size = 30, fallback }: AvatarImageProps) {
   if (src) {
     return (
       <MantineAvatar src={src} size={size} radius={radius}>
@@ -17,4 +17,4 @@ function Avatar({ alt, src, radius = 'xl', size = 30, fallback }: AvatarImagePro
   return <AvatarColor size={size} radius={radius} alt={alt} fallback={fallback}></AvatarColor>;
 }
 
-export default memo(Avatar);
+export const Avatar = memo($Avatar);

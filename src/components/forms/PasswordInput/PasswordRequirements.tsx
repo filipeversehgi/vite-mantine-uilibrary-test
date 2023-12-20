@@ -4,7 +4,7 @@ import { IconCheck, IconXClose } from '@/components/icons/untitled-ui'
 
 import { PasswordRequirementsProps } from './PasswordInput.types'
 
-function PasswordRequirements({ meets, label }: PasswordRequirementsProps) {
+export function PasswordRequirements({ meets, label }: PasswordRequirementsProps) {
     const theme = useMantineTheme()
 
     return (
@@ -16,5 +16,3 @@ function PasswordRequirements({ meets, label }: PasswordRequirementsProps) {
         </Text>
     )
 }
-
-export default PasswordRequirements

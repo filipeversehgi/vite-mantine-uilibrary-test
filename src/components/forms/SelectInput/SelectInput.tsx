@@ -6,7 +6,7 @@ import { LabelInput } from '@/components/inputs/LabelInput';
 import { SelectInputProps } from './SelectInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
 
-export function SelectInput<T extends FieldValues>({
+ function $SelectInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -50,4 +50,4 @@ export function SelectInput<T extends FieldValues>({
   );
 }
 
-export default withCheckmark(SelectInput);
+export const SelectInput = withCheckmark($SelectInput);

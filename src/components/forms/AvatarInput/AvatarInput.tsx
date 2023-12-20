@@ -13,7 +13,7 @@ import { UploadFileDialog } from '@/components/overlay';
 import classes from './AvatarInput.module.css';
 import { AvatarInputProps } from './AvatarInput.types';
 
-function AvatarInput<T extends FieldValues>({
+function $AvatarInput<T extends FieldValues>({
   name,
   label,
   control,
@@ -91,4 +91,4 @@ function AvatarInput<T extends FieldValues>({
   );
 }
 
-export default memo(AvatarInput);
+export const AvatarInput = memo($AvatarInput);

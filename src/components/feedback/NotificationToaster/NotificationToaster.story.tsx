@@ -1,7 +1,7 @@
 import { Notification } from '@mantine/core';
 import { Meta, StoryObj } from '@storybook/react';
 import { IconMinimize } from '@tabler/icons-react';
-import NotificationToaster from './NotificationToaster';
+import { NotificationToaster } from './NotificationToaster';
 
 /**
  * Toaster that will be used on Mantine notifications
@@ -19,9 +19,6 @@ const meta: Meta<typeof NotificationToaster> = {
   decorators: [(story) => <Notification title="Oi">{story()}</Notification>],
   args: {
     message: 'This is a simple notification',
-    t: {
-      close: 'Close',
-    },
     rightContent: {
       action: () => {},
     },

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import LabelInput from './LabelInput';
+import { LabelInput } from './LabelInput';
 
 /**
  * Input label

@@ -2,18 +2,17 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import { SwitchGroup } from './SwitchGroup';
 import { Group } from '@mantine/core';
-import SwitchInput from './SwitchInput';
+import {SwitchInput} from './SwitchInput';
 
 /**
  * Switch Group connected with React Hook Form.
  * <br />Based on Mantine Switch component.
  */
-const meta: Meta<typeof SwitchGroup> = {
-  component: SwitchGroup,
+const meta: Meta<typeof SwitchInput.Group> = {
+  component: SwitchInput.Group,
   tags: ['autodocs'],
-  title: 'Forms/SwitchGroup',
+  title: 'Forms/SwitchInput.Group',
   decorators: [withReactHookForm],
   parameters: {
     docs: {
@@ -30,7 +29,7 @@ const meta: Meta<typeof SwitchGroup> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SwitchGroup>;
+type Story = StoryObj<typeof SwitchInput.Group>;
 
 export const Default: Story = {
   render: (args) => {

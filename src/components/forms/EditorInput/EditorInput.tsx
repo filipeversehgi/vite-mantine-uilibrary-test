@@ -12,7 +12,7 @@ import { IconCheck } from '@/components/icons/untitled-ui';
 import { useStyles } from './EditorInput.styles';
 import { EditorInputProps } from './EditorInput.types';
 
-function EditorInput({
+function $EditorInput({
   id,
   label,
   placeholder,
@@ -115,4 +115,4 @@ function EditorInput({
   );
 }
 
-export default memo(EditorInput);
+export const EditorInput = memo($EditorInput);

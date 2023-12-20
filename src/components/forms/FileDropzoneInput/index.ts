@@ -1,1 +1,1 @@
-export { default as FileDropzoneInput } from './FileDropzoneInput'
+export { FileDropzoneInput } from './FileDropzoneInput';

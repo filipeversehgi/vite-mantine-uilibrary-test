@@ -1,1 +1,1 @@
-export { default as IconLandingPage } from './LandingPage'
+export { default as IconLandingPage } from './LandingPage';

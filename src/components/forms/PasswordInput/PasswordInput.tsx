@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
-import { PasswordInput, Tooltip, useMantineTheme } from '@mantine/core';
+import { PasswordInput as $PasswordInput, Tooltip, useMantineTheme } from '@mantine/core';
 
 import { IconEye, IconEyeOff } from '@/components/icons/untitled-ui';
 
@@ -10,7 +10,7 @@ import {
   PasswordRequirementsInput,
   PasswordRequirementsProps,
 } from './PasswordInput.types';
-import PasswordRequirements from './PasswordRequirements';
+import {PasswordRequirements} from './PasswordRequirements';
 
 export const defaultPasswordRequirements: PasswordRequirementsInput[] = [
   { re: /[0-9]/, label: 'Includes number' },
@@ -64,7 +64,7 @@ function HFPasswordInput<T extends FieldValues>({
       opened={isTooltipOpened && showTooltip}
       color={isPasswordValid ? 'teal' : undefined}
     >
-      <PasswordInput
+      <$PasswordInput
         value={value}
         onChange={(e) => {
           fieldOnChange(e);
@@ -96,4 +96,4 @@ function HFPasswordInput<T extends FieldValues>({
   );
 }
 
-export default memo(HFPasswordInput);
+export const PasswordInput = memo(HFPasswordInput);

@@ -1,1 +1,1 @@
-export { default as IconSwitchHorizontal } from './SwitchHorizontal'
+export { default as IconSwitchHorizontal } from './SwitchHorizontal';

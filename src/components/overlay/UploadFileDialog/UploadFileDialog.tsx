@@ -4,13 +4,13 @@ import { useFormContext } from 'react-hook-form';
 import { Button, Grid, Modal, ScrollArea, Text } from '@mantine/core';
 import { FileRejection, FileWithPath } from '@mantine/dropzone';
 
-import LoadingButton from '@/components/core/LoadingButton/LoadingButton';
 import { FileDropzoneInput } from '@/components/forms/FileDropzoneInput';
 
 import { TranslationContext } from '@/components/core/TranslationContext';
 import { UploadFileDialogProps } from './UploadFileDialog.types';
+import { LoadingButton } from '@/components/core';
 
-function UploadFileDialog({
+export function UploadFileDialog({
   id,
   opened,
   title,
@@ -119,5 +119,3 @@ function UploadFileDialog({
     </Modal>
   );
 }
-
-export default UploadFileDialog;
