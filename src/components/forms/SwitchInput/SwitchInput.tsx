@@ -1,11 +1,10 @@
-import { memo } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
 import { Switch } from '@mantine/core';
 import { SwitchInputProps } from './SwitchInput.types';
 import { SwitchGroup } from './SwitchGroup';
 
-function SwitchInput<T extends FieldValues>({
+export function SwitchInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -40,7 +39,5 @@ function SwitchInput<T extends FieldValues>({
   );
 }
 
-export const SwitchInput = {
-  Item = Switch,
-  Group = SwitchGroup
-};
+SwitchInput.Item = Switch;
+SwitchInput.Group = SwitchGroup;
