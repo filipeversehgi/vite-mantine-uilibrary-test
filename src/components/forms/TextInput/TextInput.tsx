@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
-import { $TextInput } from '@mantine/core';
+import { TextInput as $TextInput } from '@mantine/core';
 
-import { HFTextInputProps } from './TextInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
+import { HFTextInputProps } from './TextInput.types';
 
 function HFTextInput<T extends FieldValues>({
   name,

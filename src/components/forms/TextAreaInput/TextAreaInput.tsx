@@ -3,7 +3,6 @@ import { FieldValues, useController } from 'react-hook-form';
 
 import { Flex, Space, Textarea, Tooltip } from '@mantine/core';
 
-import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconHelpCircle } from '@/components/icons/untitled-ui';
 
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
@@ -58,7 +57,7 @@ function HFTextAreaInput<T extends FieldValues>({
       error={fieldState.error?.message}
       label={
         <Flex>
-          {<LabelInput label={label} required={props.required} disabled={props.disabled} />}
+          {label}
           {toolTipText && (
             <>
               <Space w={4} />

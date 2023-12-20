@@ -1,12 +1,11 @@
 import { FieldValues, useController } from 'react-hook-form';
 
 import { Select } from '@mantine/core';
-import { LabelInput } from '@/components/inputs/LabelInput';
 
-import { SelectInputProps } from './SelectInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
+import { SelectInputProps } from './SelectInput.types';
 
- function $SelectInput<T extends FieldValues>({
+function $SelectInput<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -35,7 +34,7 @@ import { withCheckmark } from '../WithCheckmark/WithCheckmark';
         onChange?.(e);
       }}
       error={fieldState.error?.message}
-      label={<LabelInput label={label} required={props.required} disabled={props.disabled} />}
+      label={label}
       styles={{ section: { pointerEvents: 'none' } }}
       nothingFoundMessage="No options"
       {...props}

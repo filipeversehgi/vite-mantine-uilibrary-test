@@ -1,8 +1,6 @@
 import { withReactHookForm } from '@/stories/hook-form-decorator';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
-import { z } from 'zod';
-import TextInput from '../TextInput/TextInput';
+import { TextInput } from '../TextInput/TextInput';
 import { withCheckmark } from './WithCheckmark';
 
 /**
@@ -29,6 +27,6 @@ export const Default: Story = {
   render: () => {
     const Component = withCheckmark(TextInput);
 
-    return <Component label="Write anything" withCheckmark name="textfield" />;
+    return <Component withCheckmark name="textfield" />;
   },
 };

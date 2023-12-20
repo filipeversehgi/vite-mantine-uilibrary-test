@@ -1,6 +1,6 @@
 import { IconCheck } from '@/components/icons/untitled-ui';
 import { useMantineTheme } from '@mantine/core';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 
 export type WithCheckmarkProps = {
@@ -8,13 +8,14 @@ export type WithCheckmarkProps = {
 };
 
 export type WithCheckmarkParams<T extends FieldValues> = UseControllerProps<T> & {
-  rightSection: React.ReactNode;
+  rightSection?: React.ReactNode;
   onBlur?: React.FocusEventHandler<T>;
 };
 
-export const withCheckmark =
-  <T extends FieldValues, P>(Component: React.ComponentType<P & WithCheckmarkParams<T>>) =>
-  ({ rightSection, onBlur, ...props }: P & WithCheckmarkParams<T> & WithCheckmarkProps) => {
+export const withCheckmark = <T extends FieldValues, P extends WithCheckmarkParams<T>>(
+  WrappedComponent: FC<P>
+) => {
+  return (props: P & WithCheckmarkProps) => {
     const [canRenderCheckmark, setCanRenderCheckmark] = useState(false);
     const theme = useMantineTheme();
 
@@ -36,16 +37,17 @@ export const withCheckmark =
       canRenderCheckmark && <IconCheck color={theme.colors.green[8]} />;
 
     return (
-      <Component
-        rightSection={rightCheckMark}
+      <WrappedComponent
+        {...props}
+        rightSection={rightCheckMark || props.rightSection}
         onBlur={(event) => {
           if (fieldState.isDirty) {
             fieldOnBlur();
             setCanRenderCheckmark(event.target.value ? true : false);
           }
-          onBlur && onBlur(event);
+          props.onBlur && props.onBlur(event);
         }}
-        {...props}
       />
     );
   };
+};

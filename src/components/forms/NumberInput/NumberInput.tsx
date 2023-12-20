@@ -1,14 +1,12 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 
-import { NumberInput as $NumberInput, useMantineTheme } from '@mantine/core';
+import { NumberInput as $NumberInput } from '@mantine/core';
 
-import { LabelInput } from '@/components/inputs/LabelInput';
-import { IconCheck } from '@/components/icons/untitled-ui';
 import { useKeyDownEventListener } from '@/hooks/useKeyDownEventListener';
 
-import { HFNumberInputProps } from './NumberInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
+import { HFNumberInputProps } from './NumberInput.types';
 
 function HFNumberInput<T extends FieldValues>({
   name,
@@ -44,7 +42,7 @@ function HFNumberInput<T extends FieldValues>({
         onChange?.(e);
       }}
       error={fieldState.error?.message}
-      label={<LabelInput disabled={props.disabled} required={props.required} label={label} />}
+      label={label}
       {...field}
       {...props}
       onBlur={(event) => {
