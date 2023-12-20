@@ -2,7 +2,7 @@ import { Card, SimpleGrid } from '@mantine/core';
 import * as UntitledUIIcons from '.';
 
 /**
- * Loader that covers the entire page
+ * Icons exported from UntitledUI Figma file
  */
 const meta = {
   tags: ['autodocs'],

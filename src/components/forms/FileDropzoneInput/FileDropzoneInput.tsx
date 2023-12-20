@@ -7,7 +7,7 @@ import { Dropzone, FileWithPath } from '@mantine/dropzone';
 import { IconAlertCircle, IconCheck, IconUploadCloud } from '@/components/icons/untitled-ui';
 
 import { TranslationContext } from '@/components/core/TranslationContext';
-import { LabelInput } from '../LabelInput';
+import { LabelInput } from '../../inputs/LabelInput';
 import classes from './FileDropzoneInput.module.css';
 import { acceptConfig, FileDropzoneInputProps, FileRejection } from './FileDropzoneInput.types';
 import FileDropzoneInputError from './FileDropzoneInputError/FileDropzoneInputError';

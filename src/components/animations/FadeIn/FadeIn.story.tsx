@@ -12,6 +12,9 @@ export default {
   },
 };
 
+/**
+ * Adds FadeIn animation to children on component load
+ */
 export const Default = {
   args: {
     children: 'This Text Will Fade',

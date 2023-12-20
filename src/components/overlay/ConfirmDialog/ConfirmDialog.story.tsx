@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ConfirmDialog from './ConfirmDialog';
 
 /**
- * Loader that covers the entire page
+ * Confirm dialog based on Mantine Modal
  */
 const meta: Meta<typeof ConfirmDialog> = {
   component: ConfirmDialog,

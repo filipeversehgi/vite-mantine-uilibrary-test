@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import VersionInfoChip from './VersionInfoChip';
 
 /**
- * Loader that covers the entire page
+ * Used to display the build version on development versions
  */
 const meta: Meta<typeof VersionInfoChip> = {
   component: VersionInfoChip,

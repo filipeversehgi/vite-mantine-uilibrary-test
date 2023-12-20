@@ -5,7 +5,8 @@ import { z } from 'zod';
 import AvatarInput from './AvatarInput';
 
 /**
- * Loader that covers the entire page
+ * Avatar Input connected with React Hook Form.
+ * <br />It's a component bundle of Mantine Dropzone, Dialog and Avatar
  */
 const meta: Meta<typeof AvatarInput> = {
   component: AvatarInput,

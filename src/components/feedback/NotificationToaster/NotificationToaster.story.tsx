@@ -4,7 +4,7 @@ import { IconMinimize } from '@tabler/icons-react';
 import NotificationToaster from './NotificationToaster';
 
 /**
- * Loader that covers the entire page
+ * Toaster that will be used on Mantine notifications
  */
 const meta: Meta<typeof NotificationToaster> = {
   component: NotificationToaster,

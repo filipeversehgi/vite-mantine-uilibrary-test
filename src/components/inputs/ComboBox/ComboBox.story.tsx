@@ -3,13 +3,14 @@ import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import ComboBox from './ComboBox';
 import { ComboBoxProps } from './ComboBox.types';
+
 /**
- * Loader that covers the entire page
+ * Controlled Combobox based on Mantine MultiSelect
  */
 const meta: Meta<typeof ComboBox> = {
   component: ComboBox,
   tags: ['autodocs'],
-  title: 'Forms/ComboBox',
+  title: 'Inputs/ComboBox',
   parameters: {
     docs: {
       inline: true,

@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ChangeEvent } from 'react'
-import { Control } from 'react-hook-form'
 
-import { SwitchProps } from '@mantine/core'
+import { SwitchProps } from '@mantine/core';
+import { FieldValues, UseControllerProps } from 'react-hook-form';
 
-export type SwitchInputProps = {
-    id: string
-    required: boolean
-    label?: string
-    helperText?: string
-    defaultValue?: boolean
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
-    control: Control
-} & SwitchProps
+export type SwitchInputProps<T extends FieldValues> = UseControllerProps<T> &
+    Omit<SwitchProps, "value" | "checked" | "defaultValue">;

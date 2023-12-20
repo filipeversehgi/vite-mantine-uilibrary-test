@@ -5,7 +5,8 @@ import { z } from 'zod';
 import CheckboxInput from './CheckboxInput';
 
 /**
- * Loader that covers the entire page
+ * Checkbox components connected with React Hook Form.
+ * <br />Based on Mantine component.
  */
 const meta: Meta<typeof CheckboxInput> = {
   component: CheckboxInput,

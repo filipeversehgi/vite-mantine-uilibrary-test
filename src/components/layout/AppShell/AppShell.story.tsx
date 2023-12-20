@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import AppShell from './AppShell';
 
 /**
- * Loader that covers the entire page
+ * AppShell with customized header and navbar
  */
 const meta: Meta<typeof AppShell> = {
   component: AppShell,

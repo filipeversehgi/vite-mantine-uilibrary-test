@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Header from './Header';
 
 /**
- * Loader that covers the entire page
+ * Collapsable header component
  */
 const meta: Meta<typeof Header> = {
   component: Header,

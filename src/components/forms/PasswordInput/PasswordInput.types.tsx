@@ -1,15 +1,19 @@
-import { PasswordInputProps } from '@mantine/core'
+import { PasswordInputProps } from '@mantine/core';
 
-import { FormInputType } from '@/components/forms/types'
+import { FieldValues, UseControllerProps } from 'react-hook-form';
 
-export type HFPasswordInputProps = Omit<FormInputType, 'showCheckMark'> &
-    PasswordInputProps & {
-        showTooltip?: boolean
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        rules?: any
-    }
+export type HFPasswordInputProps<T extends FieldValues> = UseControllerProps<T> &
+  Omit<PasswordInputProps, 'value' | 'defaultValue'> & {
+    showTooltip: boolean;
+    requirements: PasswordRequirementsInput[];
+  };
+
+export type PasswordRequirementsInput = {
+  re: RegExp;
+  label: string;
+};
 
 export type PasswordRequirementsProps = {
-    meets: boolean
-    label: string
-}
+  meets: boolean;
+  label: string;
+};

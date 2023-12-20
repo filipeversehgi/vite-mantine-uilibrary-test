@@ -5,7 +5,8 @@ import { z } from 'zod';
 import TextInput from './TextInput';
 
 /**
- * Loader that covers the entire page
+ * TextInput connected with React Hook Form.
+ * <br />Based on Mantine TextInput component.
  */
 const meta: Meta<typeof TextInput> = {
   component: TextInput,
@@ -34,7 +35,7 @@ export const Default: Story = {};
 
 export const WithValidation: Story = {
   args: {
-    label: 'Please insert a URL'
+    label: 'Please insert a URL',
   },
   parameters: {
     resolver: zodResolver(

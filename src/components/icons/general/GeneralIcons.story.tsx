@@ -1,7 +1,7 @@
 import { GoogleIcon } from './GoogleIcon';
 
 /**
- * Loader that covers the entire page
+ * General Icons used on the project
  */
 const meta = {
   tags: ['autodocs'],

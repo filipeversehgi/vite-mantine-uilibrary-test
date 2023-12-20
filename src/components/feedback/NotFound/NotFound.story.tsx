@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import NotFound from './NotFound';
 
 /**
- * Loader that covers the entire page
+ * Not found customizable component
  */
 const meta: Meta<typeof NotFound> = {
   component: NotFound,

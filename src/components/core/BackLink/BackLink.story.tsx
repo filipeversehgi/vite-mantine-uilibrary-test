@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import BackLink from './BackLink';
 
 /**
- * BackLink with image which falls back to fixed colors based on the first letter
+ * Backlink to be used on headers
  */
 const meta: Meta<typeof BackLink> = {
   component: BackLink,

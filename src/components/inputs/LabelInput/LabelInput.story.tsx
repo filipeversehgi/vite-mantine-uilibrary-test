@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react';
 import LabelInput from './LabelInput';
 
 /**
- * Loader to be used inside components
+ * Input label
  */
 const meta: Meta<typeof LabelInput> = {
   component: LabelInput,
   tags: ['autodocs'],
-  title: 'Forms/LabelInput',
+  title: 'Input/LabelInput',
   parameters: {
     docs: {
       inline: true,

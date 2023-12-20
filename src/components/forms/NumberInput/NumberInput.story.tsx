@@ -2,16 +2,16 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import TextAreaInput from './TextAreaInput';
+import NumberInput from './NumberInput';
 
 /**
- * TextArea connected with React Hook Form.
- * <br />Based on Mantine TextArea component.
+ * Number Input connected with React Hook Form.
+ * <br />Based on Mantine.
  */
-const meta: Meta<typeof TextAreaInput> = {
-  component: TextAreaInput,
+const meta: Meta<typeof NumberInput> = {
+  component: NumberInput,
   tags: ['autodocs'],
-  title: 'Forms/TextAreaInput',
+  title: 'Forms/NumberInput',
   decorators: [withReactHookForm],
   parameters: {
     docs: {
@@ -20,27 +20,34 @@ const meta: Meta<typeof TextAreaInput> = {
     },
   },
   args: {
-    label: 'Write anything',
+    label: 'Pick a number',
     required: true,
+    name: 'myfield',
     withCheckmark: true,
-    name: 'textfield',
+    placeholder: 'Pick one',
+    showTooltip: false,
+    requirements: [],
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof TextAreaInput>;
+type Story = StoryObj<typeof NumberInput>;
 
 export const Default: Story = {};
 
 export const WithValidation: Story = {
   args: {
-    label: 'Please insert a URL',
+    label: 'Pick a number between 10 and 200',
+    name: 'myfield',
+    placeholder: 'Pick one',
+    withCheckmark: true,
+    showTooltip: true,
   },
   parameters: {
     resolver: zodResolver(
       z.object({
-        textfield: z.string().url(),
+        myfield: z.number().min(10).max(200),
       })
     ),
   },

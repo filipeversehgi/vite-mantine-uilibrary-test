@@ -3,11 +3,11 @@ import { FieldValues, useController } from 'react-hook-form';
 
 import { Flex, Space, Textarea, Tooltip } from '@mantine/core';
 
-import { LabelInput } from '@/components/forms/LabelInput';
+import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconHelpCircle } from '@/components/icons/untitled-ui';
 
-import { HFTextAreaInputProps } from './TextAreaInput.types';
 import { withCheckmark } from '../WithCheckmark/WithCheckmark';
+import { HFTextAreaInputProps } from './TextAreaInput.types';
 
 function HFTextAreaInput<T extends FieldValues>({
   name,
@@ -93,4 +93,6 @@ function HFTextAreaInput<T extends FieldValues>({
   );
 }
 
-export default memo(withCheckmark(HFTextAreaInput));
+const HFTextAreaWithCheckmark = withCheckmark(HFTextAreaInput);
+
+export default memo(HFTextAreaWithCheckmark);

@@ -6,7 +6,7 @@ import { FieldError, useController, useFormContext } from 'react-hook-form';
 
 import { Flex, Text } from '@mantine/core';
 
-import { LabelInput } from '@/components/forms/LabelInput';
+import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconCheck } from '@/components/icons/untitled-ui';
 
 import { useStyles } from './EditorInput.styles';

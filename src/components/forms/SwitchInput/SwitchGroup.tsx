@@ -1,11 +1,13 @@
-import { memo } from 'react';
-import { FieldValues, useController } from 'react-hook-form';
+import {
+  SwitchGroup as $SwitchGroup,
+  type SwitchGroupProps as $SwitchGroupProps,
+} from '@mantine/core';
+import { useController, type FieldValues, type UseControllerProps } from 'react-hook-form';
 
-import { Switch } from '@mantine/core';
-import { SwitchInputProps } from './SwitchInput.types';
-import { SwitchGroup } from './SwitchGroup';
+export type SwitchGroupProps<T extends FieldValues> = UseControllerProps<T> &
+  Omit<$SwitchGroupProps, 'value' | 'checked' | 'defaultValue'>;
 
-function SwitchInput<T extends FieldValues>({
+export function SwitchGroup<T extends FieldValues>({
   name,
   control,
   defaultValue,
@@ -13,7 +15,7 @@ function SwitchInput<T extends FieldValues>({
   shouldUnregister,
   onChange,
   ...props
-}: SwitchInputProps<T>) {
+}: SwitchGroupProps<T>) {
   const {
     field: { value, onChange: fieldOnChange, ...field },
     fieldState,
@@ -26,9 +28,8 @@ function SwitchInput<T extends FieldValues>({
   });
 
   return (
-    <Switch
+    <$SwitchGroup
       value={value}
-      checked={value}
       onChange={(e) => {
         fieldOnChange(e);
         onChange?.(e);
@@ -39,8 +40,3 @@ function SwitchInput<T extends FieldValues>({
     />
   );
 }
-
-SwitchInput.Item = Switch;
-SwitchInput.Group = SwitchGroup;
-
-export default SwitchInput;

@@ -4,7 +4,7 @@ import { FieldError, FieldValues, useController, useFormContext } from 'react-ho
 import { ActionIcon, Flex, Text, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-import { LabelInput } from '@/components/forms/LabelInput';
+import { LabelInput } from '@/components/inputs/LabelInput';
 import { IconEdit2, IconMonitor2, IconTrash } from '@/components/icons/untitled-ui';
 import { UploadedObject } from '@/components/overlay/UploadFileDialog/UploadFileDialog.types';
 

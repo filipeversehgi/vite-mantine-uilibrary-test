@@ -2,9 +2,6 @@ import { motion } from 'framer-motion';
 
 import { FadeInProps } from './FadeIn.types';
 
-/**
- * Adds FadeIn animation to children on component load
- */
 export function FadeIn({ children }: FadeInProps) {
   return (
     <motion.div

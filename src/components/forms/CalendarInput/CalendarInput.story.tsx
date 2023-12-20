@@ -5,7 +5,8 @@ import { z } from 'zod';
 import CalendarInput from './CalendarInput';
 
 /**
- * Loader that covers the entire page
+ * Calendar Input connected with React Hook Form.
+ * <br />It's based on Mantine DateInput
  */
 const meta: Meta<typeof CalendarInput> = {
   component: CalendarInput,

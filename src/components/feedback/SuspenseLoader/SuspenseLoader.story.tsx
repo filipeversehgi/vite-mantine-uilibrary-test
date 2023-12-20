@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import SuspenseLoader from './SuspenseLoader';
 
 /**
- * Loader that covers the entire page
+ * Suspense component with auto-loading indicator
  */
 const meta: Meta<typeof SuspenseLoader> = {
   component: SuspenseLoader,

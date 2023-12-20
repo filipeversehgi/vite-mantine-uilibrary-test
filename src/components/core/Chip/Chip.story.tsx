@@ -3,7 +3,7 @@ import { IconCrown } from '@tabler/icons-react';
 import Chip from './Chip';
 
 /**
- * Chip with image which falls back to fixed colors based on the first letter
+ * A small tag-like component used to display short information
  */
 const meta: Meta<typeof Chip> = {
   component: Chip,

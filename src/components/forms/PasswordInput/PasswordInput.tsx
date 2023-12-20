@@ -1,81 +1,99 @@
-import { memo, useState } from 'react'
-import { useController } from 'react-hook-form'
+import { memo, useState } from 'react';
+import { FieldValues, useController } from 'react-hook-form';
 
-import { PasswordInput, Tooltip, useMantineTheme } from '@mantine/core'
+import { PasswordInput, Tooltip, useMantineTheme } from '@mantine/core';
 
-import { getValidationMessage, passwordRequirements } from '@/common/utils'
-import { IconEye, IconEyeOff } from '@/components/icons/untitled-ui'
+import { IconEye, IconEyeOff } from '@/components/icons/untitled-ui';
 
-import { HFPasswordInputProps } from './PasswordInput.types'
-import PasswordRequirements from './PasswordRequirements'
+import {
+  HFPasswordInputProps,
+  PasswordRequirementsInput,
+  PasswordRequirementsProps,
+} from './PasswordInput.types';
+import PasswordRequirements from './PasswordRequirements';
 
-function HFPasswordInput({
-    id,
-    label,
-    placeholder,
-    helperText,
-    required = false,
-    validations,
+export const defaultPasswordRequirements: PasswordRequirementsInput[] = [
+  { re: /[0-9]/, label: 'Includes number' },
+  { re: /[a-z]/, label: 'Includes lowercase letter' },
+  { re: /[A-Z]/, label: 'Includes uppercase letter' },
+  { re: /[$&+:;=?@#|'<>.^*()%!-/_~`"{}[\]<>]/, label: 'Includes special symbol' },
+  { re: /^.{8,}$/, label: '8+ characters required' },
+];
+
+function HFPasswordInput<T extends FieldValues>({
+  name,
+  control,
+  defaultValue,
+  rules,
+  showTooltip = false,
+  shouldUnregister,
+  requirements = defaultPasswordRequirements,
+  onChange,
+  ...props
+}: HFPasswordInputProps<T>) {
+  const [isTooltipOpened, setTooltipOpened] = useState(false);
+
+  const {
+    field: { value, onChange: fieldOnChange, ...field },
+    fieldState,
+  } = useController<T>({
+    name,
     control,
-    showTooltip = false,
-    ...props
-}: HFPasswordInputProps) {
-    const [isTooltipOpened, setTooltipOpened] = useState(false)
-    const {
-        field,
-        fieldState: { error, isDirty, invalid },
-    } = useController({
-        control,
-        name: id,
-        defaultValue: '',
-        rules: {
-            required: required,
-            minLength: validations?.rules?.minLength,
-            maxLength: validations?.rules?.maxLength,
-            pattern: new RegExp(validations?.rules?.regex || ''),
-            validate: validations?.rules?.validate,
-        },
-    })
-    const theme = useMantineTheme()
+    defaultValue,
+    rules,
+    shouldUnregister,
+  });
 
-    const isPasswordValid = !invalid && isDirty && showTooltip
+  const theme = useMantineTheme();
 
-    const checks = passwordRequirements.map((requirement, index) => (
-        <PasswordRequirements key={index} label={requirement.label} meets={requirement.re.test(field.value)} />
-    ))
+  const isPasswordValid = !fieldState.invalid && fieldState.isDirty && showTooltip;
 
-    return (
-        <Tooltip
-            label={isPasswordValid ? 'All good!' : checks}
-            position="top-end"
-            withArrow
-            opened={isTooltipOpened && showTooltip}
-            color={isPasswordValid ? 'teal' : undefined}>
-            <PasswordInput
-                id={id}
-                placeholder={placeholder}
-                description={helperText}
-                label={label}
-                error={getValidationMessage(validations, error)}
-                visibilityToggleIcon={({ reveal }) =>
-                    reveal ? <IconEyeOff color={theme.colors.dark[2]} /> : <IconEye color={theme.colors.dark[2]} />
-                }
-                {...field}
-                {...props}
-                onFocus={(event) => {
-                    props?.onFocus && props.onFocus(event)
-                    setTooltipOpened(true)
-                }}
-                onBlur={(event) => {
-                    if (isDirty) {
-                        field.onBlur()
-                    }
-                    props?.onBlur && props.onBlur(event)
-                    setTooltipOpened(false)
-                }}
-            />
-        </Tooltip>
-    )
+  const checks = defaultPasswordRequirements.map((requirement, index) => (
+    <PasswordRequirements
+      key={index}
+      label={requirement.label}
+      meets={requirement.re.test(value)}
+    />
+  ));
+
+  return (
+    <Tooltip
+      label={isPasswordValid ? 'All good!' : checks}
+      position="top-end"
+      withArrow
+      opened={isTooltipOpened && showTooltip}
+      color={isPasswordValid ? 'teal' : undefined}
+    >
+      <PasswordInput
+        value={value}
+        onChange={(e) => {
+          fieldOnChange(e);
+          onChange?.(e);
+        }}
+        error={fieldState.error?.message}
+        {...field}
+        {...props}
+        visibilityToggleIcon={({ reveal }) =>
+          reveal ? (
+            <IconEyeOff color={theme.colors.dark[2]} />
+          ) : (
+            <IconEye color={theme.colors.dark[2]} />
+          )
+        }
+        onFocus={(event) => {
+          props?.onFocus && props.onFocus(event);
+          setTooltipOpened(true);
+        }}
+        onBlur={(event) => {
+          if (fieldState.isDirty) {
+            field.onBlur();
+          }
+          props?.onBlur && props.onBlur(event);
+          setTooltipOpened(false);
+        }}
+      />
+    </Tooltip>
+  );
 }
 
-export default memo(HFPasswordInput)
+export default memo(HFPasswordInput);

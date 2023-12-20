@@ -12,6 +12,9 @@ export default {
   },
 };
 
+/**
+ * Adds FadeIn with vertical movement to children on component load
+ */
 export const Default = {
   args: {
     children: 'This Text Will Fade',

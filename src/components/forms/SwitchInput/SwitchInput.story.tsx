@@ -2,16 +2,16 @@ import { withReactHookForm } from '@/stories/hook-form-decorator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import TextAreaInput from './TextAreaInput';
+import SwitchInput from './SwitchInput';
 
 /**
- * TextArea connected with React Hook Form.
- * <br />Based on Mantine TextArea component.
+ * Switch Component connected with React Hook Form.
+ * <br />Based on Mantine Switch component.
  */
-const meta: Meta<typeof TextAreaInput> = {
-  component: TextAreaInput,
+const meta: Meta<typeof SwitchInput> = {
+  component: SwitchInput,
   tags: ['autodocs'],
-  title: 'Forms/TextAreaInput',
+  title: 'Forms/SwitchInput',
   decorators: [withReactHookForm],
   parameters: {
     docs: {
@@ -22,14 +22,13 @@ const meta: Meta<typeof TextAreaInput> = {
   args: {
     label: 'Write anything',
     required: true,
-    withCheckmark: true,
-    name: 'textfield',
+    name: 'myfield',
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof TextAreaInput>;
+type Story = StoryObj<typeof SwitchInput>;
 
 export const Default: Story = {};
 
@@ -40,7 +39,7 @@ export const WithValidation: Story = {
   parameters: {
     resolver: zodResolver(
       z.object({
-        textfield: z.string().url(),
+        myfield: z.string().url(),
       })
     ),
   },

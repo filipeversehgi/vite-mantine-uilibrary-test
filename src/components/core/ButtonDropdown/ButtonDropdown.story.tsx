@@ -3,7 +3,7 @@ import { IconHorse, IconLock, IconPencil } from '@tabler/icons-react';
 import ButtonDropdown from './ButtonDropdown';
 
 /**
- * ButtonDropdown with image which falls back to fixed colors based on the first letter
+ * Button that opens a dropdown menu with a set of options
  */
 const meta: Meta<typeof ButtonDropdown> = {
   component: ButtonDropdown,

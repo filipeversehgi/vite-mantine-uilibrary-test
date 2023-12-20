@@ -1,5 +1,6 @@
 import { NumberInputProps } from '@mantine/core'
 
-import { FormInputType } from '@/components/forms/types'
+import { FieldValues, UseControllerProps } from 'react-hook-form';
 
-export type HFNumberInputProps = FormInputType & NumberInputProps
+export type HFNumberInputProps<T extends FieldValues> = UseControllerProps<T> &
+    Omit<NumberInputProps, "value" | "defaultValue" | "label"> & { label: string };
