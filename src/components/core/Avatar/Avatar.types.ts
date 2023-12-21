@@ -1,11 +1,11 @@
-import { MantineNumberSize } from '@mantine/styles'
+import { MantineSize } from '@mantine/core';
 
 export type AvatarImageProps = {
-    alt: string
-    src?: string | null
-    size?: MantineNumberSize
-    radius?: MantineNumberSize
-    fallback?: React.ReactNode
-}
+  alt: string;
+  src?: string | null;
+  size?: MantineSize | (string & {}) | number;
+  radius?: MantineSize | (string & {}) | number;
+  fallback?: React.ReactNode;
+};
 
-export type AvatarColorProps = Pick<AvatarImageProps, 'alt' | 'radius' | 'size' | 'fallback'>
+export type AvatarColorProps = Pick<AvatarImageProps, 'alt' | 'radius' | 'size' | 'fallback'>;

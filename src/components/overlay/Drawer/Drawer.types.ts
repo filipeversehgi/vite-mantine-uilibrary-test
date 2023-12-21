@@ -1,4 +1,4 @@
-import { MantineNumberSize } from '@mantine/styles';
+import { MantineSize } from '@mantine/core';
 import { PrimitiveAtom } from 'jotai';
 
 export type DrawerProps = {
@@ -7,7 +7,7 @@ export type DrawerProps = {
   onClose?: () => void;
   children: React.ReactNode;
   atom: PrimitiveAtom<boolean>;
-  size?: MantineNumberSize;
+  size?: MantineSize | (string & {}) | number;
   withCloseButton?: boolean;
   className?: string;
 };

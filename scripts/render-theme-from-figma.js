@@ -1,32 +1,7 @@
 import { readFile, writeFile } from 'fs/promises';
 
-export interface Root {
-  version: string;
-  metadata: Metadata;
-  collections: Collection[];
-}
-
-export interface Metadata {}
-
-export interface Collection {
-  name: string;
-  modes: Mode[];
-}
-
-export interface Mode {
-  name: string;
-  variables: Variable[];
-}
-
-export interface Variable {
-  name: string;
-  type: string;
-  isAlias: boolean;
-  value: any;
-}
-
-async function generateTheme(): Promise<void> {
-  const variables: Root = await readFile('./scripts/variables.json')
+async function generateTheme() {
+  const variables = await readFile('./scripts/variables.json')
     .then((data) => data.toString())
     .then((data) => JSON.parse(data));
 
@@ -55,30 +30,27 @@ async function generateTheme(): Promise<void> {
   /**
    * Helper Functions
    */
-  const findColor = (
-    name: string,
-    variant: string
-  ): { type: string; value: any; name: string; variant: string } | null => {
+  const findColor = (name, variant) => {
     return (
       primitivesData?.find((p) => p.type === 'color' && p.name === name && p.variant === variant) ??
       null
     );
   };
 
-  const findValue = (collection: any, name: string, append: string) => {
-    const value = collection.modes[0].variables.find((f: any) => f.name === name).value;
+  const findValue = (collection, name, append) => {
+    const value = collection.modes[0].variables.find((f) => f.name === name).value;
     return `${value}${append}`;
   };
 
-  const getColorScheme = (name: string) => {
+  const getColorScheme = (name) => {
     return [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((variant) => {
       const data = findColor(name, String(variant));
       return data?.value;
     });
   };
 
-  const getHeadingConfig = (name: string) => {
-    const data = typographyRaw?.modes[0].variables.find((v) => v.name == name) as any;
+  const getHeadingConfig = (name) => {
+    const data = typographyRaw?.modes[0].variables.find((v) => v.name == name);
     return {
       fontSize: data?.value.fontSize + 'px',
       fontWeight: data?.value.fontWeight,
@@ -86,11 +58,11 @@ async function generateTheme(): Promise<void> {
     };
   };
 
-  const getShadowConfig = (name: string) => {
-    const data = effectsRaw?.modes[0].variables.find((v) => v.name == name) as any;
-    const shadows = data.value.effects.filter((effect: any) => effect.type == 'DROP_SHADOW');
+  const getShadowConfig = (name) => {
+    const data = effectsRaw?.modes[0].variables.find((v) => v.name == name);
+    const shadows = data.value.effects.filter((effect) => effect.type == 'DROP_SHADOW');
     const shadowsString = shadows.map(
-      (shadow: any) =>
+      (shadow) =>
         `${shadow.offset.x}px ${shadow.offset.y}px ${shadow.radius}px ${shadow.spread}px rgba(${shadow.color.r}, ${shadow.color.g}, ${shadow.color.b}, ${shadow.color.a})`
     );
 
@@ -103,7 +75,7 @@ async function generateTheme(): Promise<void> {
     error: getColorScheme('Error'),
     warning: getColorScheme('Warning'),
     success: getColorScheme('Success'),
-  } as any;
+  };
 
   let themeFile = `
 import { MantineThemeOverride, defaultVariantColorsResolver } from '@mantine/core';
