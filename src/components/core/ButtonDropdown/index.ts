@@ -1,2 +1,1 @@
-export { ButtonDropdown } from './ButtonDropdown';
-
+export { ButtonDropdown } from './ButtonDropdown'

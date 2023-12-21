@@ -1,1 +1,1 @@
-export { default as IconCopy5 } from './Copy5';
+export { default as IconCopy5 } from './Copy5'

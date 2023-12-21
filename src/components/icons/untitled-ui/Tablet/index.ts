@@ -1,1 +1,1 @@
-export { default as IconTablet } from './Tablet';
+export { default as IconTablet } from './Tablet'

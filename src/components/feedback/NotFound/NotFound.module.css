@@ -1,16 +1,16 @@
 .emptyList {
-  & svg path {
-    stroke: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
-  }
+    & svg path {
+        stroke: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
+    }
 }
 
 .title {
-  color: light-dark(var(--mantine-color-brand-7), var(--mantine-color-brand-2));
-  font-weight: 500;
-  line-height: normal;
+    color: light-dark(var(--mantine-color-brand-7), var(--mantine-color-brand-2));
+    font-weight: 500;
+    line-height: normal;
 }
 
 .description {
-  color: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
-  line-height: normal;
+    color: light-dark(var(--mantine-color-brand-5), var(--mantine-color-brand-4));
+    line-height: normal;
 }

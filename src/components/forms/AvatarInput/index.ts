@@ -1,1 +1,1 @@
-export { AvatarInput } from './AvatarInput';
+export { AvatarInput } from './AvatarInput'

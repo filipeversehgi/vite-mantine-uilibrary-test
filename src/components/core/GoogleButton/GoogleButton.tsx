@@ -1,15 +1,15 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
-import { ActionIcon, ActionIconProps } from '@mantine/core';
+import { ActionIcon, ActionIconProps } from '@mantine/core'
 
-import { GoogleIcon } from '@/components/icons';
+import { GoogleIcon } from '@/components/icons'
 
 function $GoogleButton(props: ActionIconProps) {
-  return (
-    <ActionIcon variant="default" color="gray" {...props}>
-      <GoogleIcon />
-    </ActionIcon>
-  );
+    return (
+        <ActionIcon variant="default" color="gray" {...props}>
+            <GoogleIcon />
+        </ActionIcon>
+    )
 }
 
-export const GoogleButton = memo($GoogleButton);
+export const GoogleButton = memo($GoogleButton)

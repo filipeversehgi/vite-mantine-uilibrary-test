@@ -1,1 +1,1 @@
-export { default as IconEyeOff } from './EyeOff';
+export { default as IconEyeOff } from './EyeOff'

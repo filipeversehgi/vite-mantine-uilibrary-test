@@ -1,1 +1,1 @@
-export { default as IconChevronSelectorVertical } from './ChevronSelectorVertical';
+export { default as IconChevronSelectorVertical } from './ChevronSelectorVertical'

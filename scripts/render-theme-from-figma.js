@@ -1,83 +1,80 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises'
 
 async function generateTheme() {
-  const variables = await readFile('./scripts/variables.json')
-    .then((data) => data.toString())
-    .then((data) => JSON.parse(data));
+    const variables = await readFile('./scripts/variables.json')
+        .then((data) => data.toString())
+        .then((data) => JSON.parse(data))
 
-  /**
-   * Variable Collections
-   */
+    /**
+     * Variable Collections
+     */
 
-  const primitivesRaw = variables.collections.find((c) => c.name === '_Primitives');
+    const primitivesRaw = variables.collections.find((c) => c.name === '_Primitives')
 
-  const radiusRaw = variables.collections.find((c) => c.name === '2. Radius');
+    const radiusRaw = variables.collections.find((c) => c.name === '2. Radius')
 
-  const typographyRaw = variables.collections.find((c) => c.name === 'Typography');
+    const typographyRaw = variables.collections.find((c) => c.name === 'Typography')
 
-  const effectsRaw = variables.collections.find((c) => c.name === 'Effects');
+    const effectsRaw = variables.collections.find((c) => c.name === 'Effects')
 
-  const primitivesData = primitivesRaw?.modes[0].variables.map((m) => {
-    const [type, name, variant] = m.name.split('/');
-    return {
-      type: m.type,
-      value: m.value,
-      name: name,
-      variant: variant,
-    };
-  });
+    const primitivesData = primitivesRaw?.modes[0].variables.map((m) => {
+        const [type, name, variant] = m.name.split('/')
+        return {
+            type: m.type,
+            value: m.value,
+            name: name,
+            variant: variant,
+        }
+    })
 
-  /**
-   * Helper Functions
-   */
-  const findColor = (name, variant) => {
-    return (
-      primitivesData?.find((p) => p.type === 'color' && p.name === name && p.variant === variant) ??
-      null
-    );
-  };
+    /**
+     * Helper Functions
+     */
+    const findColor = (name, variant) => {
+        return primitivesData?.find((p) => p.type === 'color' && p.name === name && p.variant === variant) ?? null
+    }
 
-  const findValue = (collection, name, append) => {
-    const value = collection.modes[0].variables.find((f) => f.name === name).value;
-    return `${value}${append}`;
-  };
+    const findValue = (collection, name, append) => {
+        const value = collection.modes[0].variables.find((f) => f.name === name).value
+        return `${value}${append}`
+    }
 
-  const getColorScheme = (name) => {
-    return [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((variant) => {
-      const data = findColor(name, String(variant));
-      return data?.value;
-    });
-  };
+    const getColorScheme = (name) => {
+        return [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((variant) => {
+            const data = findColor(name, String(variant))
+            return data?.value
+        })
+    }
 
-  const getHeadingConfig = (name) => {
-    const data = typographyRaw?.modes[0].variables.find((v) => v.name == name);
-    return {
-      fontSize: data?.value.fontSize + 'px',
-      fontWeight: data?.value.fontWeight,
-      lineHeight: data?.value.lineHeight + 'px',
-    };
-  };
+    const getHeadingConfig = (name) => {
+        const data = typographyRaw?.modes[0].variables.find((v) => v.name == name)
+        return {
+            fontSize: data?.value.fontSize + 'px',
+            fontWeight: data?.value.fontWeight,
+            lineHeight: data?.value.lineHeight + 'px',
+        }
+    }
 
-  const getShadowConfig = (name) => {
-    const data = effectsRaw?.modes[0].variables.find((v) => v.name == name);
-    const shadows = data.value.effects.filter((effect) => effect.type == 'DROP_SHADOW');
-    const shadowsString = shadows.map(
-      (shadow) =>
-        `${shadow.offset.x}px ${shadow.offset.y}px ${shadow.radius}px ${shadow.spread}px rgba(${shadow.color.r}, ${shadow.color.g}, ${shadow.color.b}, ${shadow.color.a})`
-    );
+    const getShadowConfig = (name) => {
+        const data = effectsRaw?.modes[0].variables.find((v) => v.name == name)
+        const shadows = data.value.effects.filter((effect) => effect.type == 'DROP_SHADOW')
+        const shadowsString = shadows.map(
+            (shadow) =>
+                `${shadow.offset.x}px ${shadow.offset.y}px ${shadow.radius}px ${shadow.spread}px rgba(${shadow.color.r}, ${shadow.color.g}, ${shadow.color.b}, ${shadow.color.a})`
+        )
 
-    return shadowsString.join(', ');
-  };
+        return shadowsString.join(', ')
+    }
 
-  const colors = {
-    brand: getColorScheme('Brand'),
-    gray: getColorScheme('Gray (light mode)'),
-    error: getColorScheme('Error'),
-    warning: getColorScheme('Warning'),
-    success: getColorScheme('Success'),
-  };
+    const colors = {
+        brand: getColorScheme('Brand'),
+        gray: getColorScheme('Gray (light mode)'),
+        error: getColorScheme('Error'),
+        warning: getColorScheme('Warning'),
+        success: getColorScheme('Success'),
+    }
 
-  let themeFile = `
+    let themeFile = `
 import { MantineThemeOverride, defaultVariantColorsResolver } from '@mantine/core';
 import { customComponents } from './theme-components';
 
@@ -182,14 +179,14 @@ export const theme: MantineThemeOverride = {
     return defaultResolvedColors
   }
 }
-`;
+`
 
-  await writeFile('./src/theme.ts', themeFile);
+    await writeFile('./src/theme.ts', themeFile)
 }
 
 generateTheme()
-  .then(() => process.exit(0))
-  .catch((err) => {
-    console.log(err);
-    process.exit(1);
-  });
+    .then(() => process.exit(0))
+    .catch((err) => {
+        console.log(err)
+        process.exit(1)
+    })

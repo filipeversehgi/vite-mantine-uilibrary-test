@@ -1,8 +1,8 @@
 .btnCol {
-  text-align: end;
+    text-align: end;
 }
 
 .btn {
-  min-width: 120px;
-  padding-inline: 12px; /* Use kebab-case for camelCase properties in CSS Modules */
+    min-width: 120px;
+    padding-inline: 12px; /* Use kebab-case for camelCase properties in CSS Modules */
 }

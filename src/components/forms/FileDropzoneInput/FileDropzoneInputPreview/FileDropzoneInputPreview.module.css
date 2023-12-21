@@ -1,33 +1,33 @@
 .flex1 {
-  flex: 1 !important;
+    flex: 1 !important;
 }
 
 .avatar {
-  gap: var(--mantine-spacing-md); /* Adjust the variable name */
+    gap: var(--mantine-spacing-md); /* Adjust the variable name */
 
-  > div:nth-of-type(2) {
-    color: var(--mantine-color-brand-5); /* Adjust the variable name */
-  }
+    > div:nth-of-type(2) {
+        color: var(--mantine-color-brand-5); /* Adjust the variable name */
+    }
 }
 
 .image {
-  width: 100%;
-  height: 107px;
-  position: relative;
-
-  > div:first-of-type {
     width: 100%;
     height: 107px;
-  }
+    position: relative;
 
-  > span {
-    position: absolute;
-    bottom: 0;
-    right: var(--mantine-spacing-xxs); /* Adjust the variable name */
-
-    button {
-      background-color: var(--mantine-color-dark-4); /* Adjust the variable name */
-      margin-bottom: var(--mantine-spacing-xs); /* Adjust the variable name */
+    > div:first-of-type {
+        width: 100%;
+        height: 107px;
     }
-  }
+
+    > span {
+        position: absolute;
+        bottom: 0;
+        right: var(--mantine-spacing-xxs); /* Adjust the variable name */
+
+        button {
+            background-color: var(--mantine-color-dark-4); /* Adjust the variable name */
+            margin-bottom: var(--mantine-spacing-xs); /* Adjust the variable name */
+        }
+    }
 }

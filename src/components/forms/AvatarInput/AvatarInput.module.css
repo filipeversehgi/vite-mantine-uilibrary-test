@@ -1,15 +1,15 @@
 .image {
-  width: 120px;
-  position: relative;
+    width: 120px;
+    position: relative;
 
-  > span {
-    position: absolute;
-    bottom: 0;
-    right: var(--mantine-spacing-xxs); /* Adjust the variable name */
+    > span {
+        position: absolute;
+        bottom: 0;
+        right: var(--mantine-spacing-xxs); /* Adjust the variable name */
 
-    button {
-      background-color: var(--mantine-color-light-9); /* Adjust the variable name */
-      margin-bottom: var(--mantine-spacing-xs); /* Adjust the variable name */
+        button {
+            background-color: var(--mantine-color-light-9); /* Adjust the variable name */
+            margin-bottom: var(--mantine-spacing-xs); /* Adjust the variable name */
+        }
     }
-  }
 }

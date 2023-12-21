@@ -1,1 +1,1 @@
-export { default as IconMessageDotsSquare } from './MessageDotsSquare';
+export { default as IconMessageDotsSquare } from './MessageDotsSquare'

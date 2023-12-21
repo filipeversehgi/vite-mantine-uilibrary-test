@@ -1,1 +1,1 @@
-export { default as IconShoppingCart2 } from './ShoppingCart2';
+export { default as IconShoppingCart2 } from './ShoppingCart2'

@@ -1,1 +1,1 @@
-export { default as IconImage3 } from './Image3';
+export { default as IconImage3 } from './Image3'

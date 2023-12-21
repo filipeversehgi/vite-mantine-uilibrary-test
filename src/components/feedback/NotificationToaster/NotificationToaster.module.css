@@ -1,6 +1,6 @@
 .closeBtn {
-  display: flex;
-  align-items: center;
-  padding-right: var(--mantine-spacing-md);
-  gap: var(--mantine-spacing-xs);
+    display: flex;
+    align-items: center;
+    padding-right: var(--mantine-spacing-md);
+    gap: var(--mantine-spacing-xs);
 }

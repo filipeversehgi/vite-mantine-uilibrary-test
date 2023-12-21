@@ -1,1 +1,1 @@
-export { default as IconBrush } from './Brush';
+export { default as IconBrush } from './Brush'

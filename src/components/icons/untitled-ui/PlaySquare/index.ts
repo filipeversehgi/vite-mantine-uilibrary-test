@@ -1,1 +1,1 @@
-export { default as IconPlaySquare } from './PlaySquare';
+export { default as IconPlaySquare } from './PlaySquare'

@@ -1,2 +1,1 @@
-export { GlobalLoader } from './GlobalLoader';
-
+export { GlobalLoader } from './GlobalLoader'

@@ -1,1 +1,1 @@
-export { default as IconMail2 } from './Mail2';
+export { default as IconMail2 } from './Mail2'

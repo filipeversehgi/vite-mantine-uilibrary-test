@@ -1,1 +1,1 @@
-export { default as IconMinus } from './Minus';
+export { default as IconMinus } from './Minus'

@@ -1,22 +1,22 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
-import { ButtonProps, FloatingPosition } from '@mantine/core';
+import { ButtonProps, FloatingPosition } from '@mantine/core'
 
 export type ButtonDropdownItem = {
-  label: string;
-  onClick: () => void;
-  icon?: ReactNode;
-};
+    label: string
+    onClick: () => void
+    icon?: ReactNode
+}
 
 export type ButtonDropdownTooltip = {
-  text: string;
-  position?: FloatingPosition;
-};
+    text: string
+    position?: FloatingPosition
+}
 
 export type ButtonDropdownProps = {
-  label: string;
-  tooltip?: ButtonDropdownTooltip;
-  dropdownItems: ButtonDropdownItem[];
-  position?: FloatingPosition;
-  isLoading?: boolean;
-} & ButtonProps;
+    label: string
+    tooltip?: ButtonDropdownTooltip
+    dropdownItems: ButtonDropdownItem[]
+    position?: FloatingPosition
+    isLoading?: boolean
+} & ButtonProps

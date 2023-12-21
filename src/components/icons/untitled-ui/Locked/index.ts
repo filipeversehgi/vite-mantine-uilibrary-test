@@ -1,1 +1,1 @@
-export { default as IconLocked } from './Locked';
+export { default as IconLocked } from './Locked'

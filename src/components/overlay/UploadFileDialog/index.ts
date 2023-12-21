@@ -1,1 +1,1 @@
-export { UploadFileDialog } from './UploadFileDialog';
+export { UploadFileDialog } from './UploadFileDialog'

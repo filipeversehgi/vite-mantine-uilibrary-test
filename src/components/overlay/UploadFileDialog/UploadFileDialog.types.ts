@@ -1,4 +1,3 @@
-
 import { Accept } from '@/components/forms/FileDropzoneInput/FileDropzoneInput.types'
 
 export type UploadedObject = {
@@ -30,5 +29,4 @@ export type UploadFileDialogProps = {
     onClose: (url?: UploadedObjectInfo) => void
     customContent?: React.ReactNode
     onUpload: { upload: (file: File) => void; isLoading: boolean }
-
-} 
+}

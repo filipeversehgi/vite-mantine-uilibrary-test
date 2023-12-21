@@ -1,1 +1,1 @@
-export { default as IconGlobe } from './Globe';
+export { default as IconGlobe } from './Globe'

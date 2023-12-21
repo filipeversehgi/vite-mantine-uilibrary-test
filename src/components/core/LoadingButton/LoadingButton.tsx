@@ -1,18 +1,16 @@
-import { ForwardRefRenderFunction, forwardRef, memo } from 'react';
+import { ForwardRefRenderFunction, forwardRef, memo } from 'react'
 
-import { Button } from '@mantine/core';
+import { Button } from '@mantine/core'
 
-import { LoadingButtonProps } from './LoadingButton.types';
+import { LoadingButtonProps } from './LoadingButton.types'
 
 const $LoadingButton: ForwardRefRenderFunction<HTMLButtonElement, LoadingButtonProps> = (
-  { isLoading, disabled, children, ...buttonProps },
-  ref
-) => {
-  return (
+    { isLoading, disabled, children, ...buttonProps },
+    ref
+) => (
     <Button ref={ref} loading={isLoading} disabled={isLoading || disabled} {...buttonProps}>
-      {!isLoading && children}
+        {!isLoading && children}
     </Button>
-  );
-};
+);
 
-export const LoadingButton = memo(forwardRef($LoadingButton));
+export const LoadingButton = memo(forwardRef($LoadingButton))

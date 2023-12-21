@@ -1,1 +1,1 @@
-export * from './notifications.utils';
+export * from './notifications.utils'

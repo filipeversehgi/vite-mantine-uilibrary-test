@@ -1,1 +1,1 @@
-export { default as IconMonitor } from './Monitor';
+export { default as IconMonitor } from './Monitor'

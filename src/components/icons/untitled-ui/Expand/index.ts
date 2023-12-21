@@ -1,1 +1,1 @@
-export { default as IconExpand } from './Expand';
+export { default as IconExpand } from './Expand'

@@ -1,1 +1,1 @@
-export { default as IconSearchMd } from './SearchMd';
+export { default as IconSearchMd } from './SearchMd'

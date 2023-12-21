@@ -1,1 +1,1 @@
-export { MessageDialog } from './MessageDialog';
+export { MessageDialog } from './MessageDialog'

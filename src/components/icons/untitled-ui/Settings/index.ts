@@ -1,1 +1,1 @@
-export { default as IconSettings } from './Settings';
+export { default as IconSettings } from './Settings'

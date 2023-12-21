@@ -1,45 +1,47 @@
 import { Meta, StoryObj } from '@storybook/react';
+
 import { IconHorse, IconLock, IconPencil } from '@tabler/icons-react';
-import { ButtonDropdown } from './ButtonDropdown';
+
+import { ButtonDropdown } from './ButtonDropdown'
 
 /**
  * Button that opens a dropdown menu with a set of options
  */
 const meta: Meta<typeof ButtonDropdown> = {
-  component: ButtonDropdown,
-  tags: ['autodocs'],
-  title: 'Core/ButtonDropdown',
-  parameters: {
-    docs: {
-      inline: true,
-      canvas: { sourceState: 'shown' }, // start with the source open
+    component: ButtonDropdown,
+    tags: ['autodocs'],
+    title: 'Core/ButtonDropdown',
+    parameters: {
+        docs: {
+            inline: true,
+            canvas: { sourceState: 'shown' }, // start with the source open
+        },
     },
-  },
-  args: {
-    label: 'Cast a Spell',
-    dropdownItems: [
-      { label: 'Alohomora!', onClick: () => {}, icon: <IconLock /> },
-      { label: 'Expecto Pratronum', onClick: () => {}, icon: <IconHorse /> },
-      { label: 'Expeliarmus!', onClick: () => {}, icon: <IconPencil /> },
-    ],
-    tooltip: {
-      text: 'Select a spell',
-      position: 'top',
+    args: {
+        label: 'Cast a Spell',
+        dropdownItems: [
+            { label: 'Alohomora!', onClick: () => {}, icon: <IconLock /> },
+            { label: 'Expecto Pratronum', onClick: () => {}, icon: <IconHorse /> },
+            { label: 'Expeliarmus!', onClick: () => {}, icon: <IconPencil /> },
+        ],
+        tooltip: {
+            text: 'Select a spell',
+            position: 'top',
+        },
+        position: 'bottom-start',
     },
-    position: 'bottom-start',
-  },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof ButtonDropdown>;
+type Story = StoryObj<typeof ButtonDropdown>
 
 export const Default: Story = {
-  args: {},
-};
+    args: {},
+}
 
 export const Loading: Story = {
-  args: {
-    isLoading: true,
-  },
-};
+    args: {
+        isLoading: true,
+    },
+}

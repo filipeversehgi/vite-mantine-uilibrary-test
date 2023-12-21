@@ -1,4 +1,4 @@
-import { GlobalLoaderProps } from "../GlobalLoader/GlobalLoader"
+import { GlobalLoaderProps } from '../GlobalLoader/GlobalLoader'
 
 export type SuspenseLoaderProps = {
     children: React.ReactNode

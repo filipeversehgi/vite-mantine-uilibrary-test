@@ -1,1 +1,1 @@
-export { default as IconDotsVertical } from './DotsVertical';
+export { default as IconDotsVertical } from './DotsVertical'

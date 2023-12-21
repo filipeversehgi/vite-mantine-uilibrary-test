@@ -1,1 +1,1 @@
-export { default as IconHelpCircle } from './HelpCircle';
+export { default as IconHelpCircle } from './HelpCircle'

@@ -1,1 +1,1 @@
-export { default as IconLayoutGrid } from './LayoutGrid';
+export { default as IconLayoutGrid } from './LayoutGrid'

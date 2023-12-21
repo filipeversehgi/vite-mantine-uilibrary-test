@@ -1,20 +1,20 @@
 .radioItem {
-  padding-block: var(--mantine-spacing-xs); /* Adjust the variable name */
+    padding-block: var(--mantine-spacing-xs); /* Adjust the variable name */
 
-  input {
-    height: var(--mantine-spacing-md); /* Adjust the variable name */
-    width: var(--mantine-spacing-md); /* Adjust the variable name */
-  }
+    input {
+        height: var(--mantine-spacing-md); /* Adjust the variable name */
+        width: var(--mantine-spacing-md); /* Adjust the variable name */
+    }
 
-  label {
-    line-height: var(--mantine-spacing-md); /* Adjust the variable name */
-  }
+    label {
+        line-height: var(--mantine-spacing-md); /* Adjust the variable name */
+    }
 
-  svg {
-    width: var(--mantine-spacing-xxs); /* Adjust the variable name */
-    height: var(--mantine-spacing-xxs); /* Adjust the variable name */
-    top: calc(50% - var(--mantine-spacing-xxs) / 2);
-    left: calc(50% - var(--mantine-spacing-xxs) / 2);
-    transform: scale(0.95) !important;
-  }
+    svg {
+        width: var(--mantine-spacing-xxs); /* Adjust the variable name */
+        height: var(--mantine-spacing-xxs); /* Adjust the variable name */
+        top: calc(50% - var(--mantine-spacing-xxs) / 2);
+        left: calc(50% - var(--mantine-spacing-xxs) / 2);
+        transform: scale(0.95) !important;
+    }
 }

@@ -1,1 +1,1 @@
-export { default as IconCurrencyDollar } from './CurrencyDollar';
+export { default as IconCurrencyDollar } from './CurrencyDollar'

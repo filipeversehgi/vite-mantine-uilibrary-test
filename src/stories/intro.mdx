@@ -1,17 +1,18 @@
-import { Meta, Unstyled } from '@storybook/blocks';
-import { HomePage } from '../pages/Home.page';
-import { MantineProvider } from '@mantine/core';
-import { theme } from '../theme';
+import { Meta, Unstyled } from '@storybook/blocks'
+import { HomePage } from '../pages/Home.page'
+import { MantineProvider } from '@mantine/core'
+import { theme } from '../theme'
 
 <Meta title="Introduction" />
 
 # Welcome to BuildHero Core Components!
+
 Made with ❤️ by Scalio's Team
 
 ## How to use
 
 You just need to make sure your project is allowed to fetch NPM packages from our private registry,
-then, just go install with: 
+then, just go install with:
 
 ```bash
 yarn add @scalio/buildhero-core-components
@@ -32,7 +33,7 @@ This project offers a way of synching it's theme with **Figma UntitledUI Pro Var
 Here you can find the default theme applied to a set of components, to check their adherence to UntitledUI configurations.
 
 <Unstyled>
-<MantineProvider defaultColorScheme="light" theme={theme}>
-    <HomePage/>
-</MantineProvider>
+    <MantineProvider defaultColorScheme="light" theme={theme}>
+        <HomePage />
+    </MantineProvider>
 </Unstyled>

@@ -1,1 +1,1 @@
-export { default as IconUploadCloud } from './UploadCloud';
+export { default as IconUploadCloud } from './UploadCloud'

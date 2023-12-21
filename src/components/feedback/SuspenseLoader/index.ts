@@ -1,2 +1,1 @@
-export { SuspenseLoader } from './SuspenseLoader';
-
+export { SuspenseLoader } from './SuspenseLoader'

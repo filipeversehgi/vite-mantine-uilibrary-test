@@ -1,4 +1,3 @@
-
 export type VersionInfoChipProps = {
-    version: String
+    version: string
 }

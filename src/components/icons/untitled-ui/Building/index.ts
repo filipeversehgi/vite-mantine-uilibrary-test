@@ -1,1 +1,1 @@
-export { default as IconBuilding } from './Building';
+export { default as IconBuilding } from './Building'

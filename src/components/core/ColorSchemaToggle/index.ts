@@ -1,2 +1,1 @@
-export { ColorSchemaToggle } from './ColorSchemaToggle';
-
+export { ColorSchemaToggle } from './ColorSchemaToggle'

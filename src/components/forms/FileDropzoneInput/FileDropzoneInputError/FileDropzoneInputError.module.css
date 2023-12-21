@@ -1,36 +1,36 @@
 .flex1 {
-  flex: 1 !important;
+    flex: 1 !important;
 }
 
 .errorContainer {
-  padding: var(--mantine-spacing-md); /* Adjust the variable name */
-  border: 2px solid var(--mantine-color-error-2); /* Adjust the variable name */
-  border-radius: var(--mantine-radius-lg); /* Adjust the variable name */
+    padding: var(--mantine-spacing-md); /* Adjust the variable name */
+    border: 2px solid var(--mantine-color-error-2); /* Adjust the variable name */
+    border-radius: var(--mantine-radius-lg); /* Adjust the variable name */
 }
 
 .iconDecorationError {
-  height: 32px;
-  width: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: solid 4px var(--mantine-color-error-0); /* Adjust the variable name */
-  background-color: var(--mantine-color-error-0); /* Adjust the variable name */
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: solid 4px var(--mantine-color-error-0); /* Adjust the variable name */
+    background-color: var(--mantine-color-error-0); /* Adjust the variable name */
 
-  svg path {
-    stroke: var(--mantine-color-error-8); /* Adjust the variable name */
-  }
+    svg path {
+        stroke: var(--mantine-color-error-8); /* Adjust the variable name */
+    }
 }
 
 .spanMargin {
-  margin-left: var(--mantine-radius-xs); /* Adjust the variable name */
+    margin-left: var(--mantine-radius-xs); /* Adjust the variable name */
 }
 
 .avatar {
-  gap: var(--mantine-spacing-sm); /* Adjust the variable name */
+    gap: var(--mantine-spacing-sm); /* Adjust the variable name */
 
-  > div:nth-of-type(2) {
-    color: var(--mantine-color-dark-1); /* Adjust the variable name */
-  }
+    > div:nth-of-type(2) {
+        color: var(--mantine-color-dark-1); /* Adjust the variable name */
+    }
 }

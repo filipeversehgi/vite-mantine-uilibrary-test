@@ -1,28 +1,29 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { NotFound } from './NotFound';
+
+import { NotFound } from './NotFound'
 
 /**
  * Not found customizable component
  */
 const meta: Meta<typeof NotFound> = {
-  component: NotFound,
-  tags: ['autodocs'],
-  title: 'Feedback/NotFound',
-  parameters: {
-    docs: {
-      inline: true,
-      canvas: { sourceState: 'shown' }, // start with the source open
+    component: NotFound,
+    tags: ['autodocs'],
+    title: 'Feedback/NotFound',
+    parameters: {
+        docs: {
+            inline: true,
+            canvas: { sourceState: 'shown' }, // start with the source open
+        },
     },
-  },
-  args: {
-    description: "These are not the droid you're looking for",
-    title: 'Nothing was found here.',
-    height: 200,
-  },
-};
+    args: {
+        description: "These are not the droid you're looking for",
+        title: 'Nothing was found here.',
+        height: 200,
+    },
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof NotFound>;
+type Story = StoryObj<typeof NotFound>
 
-export const Default: Story = {};
+export const Default: Story = {}

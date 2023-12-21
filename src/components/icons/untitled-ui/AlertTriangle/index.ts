@@ -1,1 +1,1 @@
-export { default as IconAlertTriangle } from './AlertTriangle';
+export { default as IconAlertTriangle } from './AlertTriangle'
