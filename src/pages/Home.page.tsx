@@ -1,9 +1,7 @@
-import { ColorSchemaToggle } from '@/components/core/ColorSchemaToggle';
 import {
   Button,
   ButtonProps,
   Card,
-  Container,
   Divider,
   MantineStyleProps,
   SimpleGrid,
@@ -17,8 +15,8 @@ import { InputList } from './InputList';
 
 export function HomePage() {
   return (
-    <Container>
-      <ColorSchemaToggle />
+    <>
+      {/* <ColorSchemaToggle /> */}
 
       <Section title="Colors">
         <ColorList bg="brand" title="Brand" />
@@ -78,7 +76,7 @@ export function HomePage() {
       <Section title="Input md">
         <InputList size="md" />
       </Section>
-    </Container>
+    </>
   );
 }
 
@@ -118,12 +116,12 @@ export function ButtonList({
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <>
-      <Divider mt="xl" mb="xl" py="xl" color="gray.2" />
       <Text size="xl" fw="500">
         {title}
       </Text>
 
       {children}
+      <Divider mt="xl" mb="xl" py="xl" color="gray.2" />
     </>
   );
 }

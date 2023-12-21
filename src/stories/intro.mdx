@@ -1,0 +1,38 @@
+import { Meta, Unstyled } from '@storybook/blocks';
+import { HomePage } from '../pages/Home.page';
+import { MantineProvider } from '@mantine/core';
+import { theme } from '../theme';
+
+<Meta title="Introduction" />
+
+# Welcome to BuildHero Core Components!
+Made with ❤️ by Scalio's Team
+
+## How to use
+
+You just need to make sure your project is allowed to fetch NPM packages from our private registry,
+then, just go install with: 
+
+```bash
+yarn add @scalio/buildhero-core-components
+```
+
+## Theme
+
+This project offers a way of synching it's theme with **Figma UntitledUI Pro Variables**
+
+1. Install Figma plugin **variables2json**
+2. Export the variables from your Figma file into a file called `variables.json`
+3. Upon installation, this plugin will look for an existing file in your project root and use it
+
+> If no `variables.json` is found, this plugin will stick to it's default theme
+
+# Showcase
+
+Here you can find the default theme applied to a set of components, to check their adherence to UntitledUI configurations.
+
+<Unstyled>
+<MantineProvider defaultColorScheme="light" theme={theme}>
+    <HomePage/>
+</MantineProvider>
+</Unstyled>
