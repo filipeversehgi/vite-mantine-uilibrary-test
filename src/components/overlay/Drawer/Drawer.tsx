@@ -1,6 +1,6 @@
 import { Drawer as MantineDrawer } from '@mantine/core';
 
-import { useDrawer } from '@/hooks';
+import { useAtomWithDrawer } from '@/hooks';
 
 import { DrawerProps } from './Drawer.types';
 
@@ -13,7 +13,7 @@ export function Drawer({
   className,
   withCloseButton = true,
 }: DrawerProps) {
-  const [isOpen, { close }] = useDrawer(atom);
+  const [isOpen, { close }] = useAtomWithDrawer(atom);
 
   return (
     <MantineDrawer

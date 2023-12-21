@@ -18,6 +18,7 @@ export const withReactHookForm = (StoryComponent: StoryFn, context: any) => {
   const methods = useForm({
     defaultValues,
     resolver: parameters?.resolver,
+    mode: 'onBlur',
   });
 
   const { handleSubmit, control } = methods;
